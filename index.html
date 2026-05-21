@@ -1,0 +1,968 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <!-- ============================================== -->
+    <!-- META CONFIGURATION                             -->
+    <!-- ============================================== -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="ורדה משה - טיפול CBT, הדרכת הורים ואימון הוליסטי לילדים, מתבגרים ומבוגרים. מזמינה אתכם למסע של התפתחות ושקט פנימי." />
+    <meta name="keywords" content="CBT, טיפול קוגניטיבי התנהגותי, הדרכת הורים, אימון הוליסטי, ורדה משה, טיפול בחרדות, מוכנות לכיתה א" />
+    <meta name="author" content="ורדה משה" />
+    <meta property="og:title" content="ורדה משה | מסע של התפתחות ושקט פנימי" />
+    <meta property="og:description" content="טיפול CBT, הדרכת הורים ואימון הוליסטי - בהתאמה אישית לילדים ולהורים." />
+    <meta property="og:type" content="website" />
+
+    <title>ורדה משה | מסע של התפתחות ושקט פנימי</title>
+
+    <!-- ============================================== -->
+    <!-- FAVICON                                        -->
+    <!-- ============================================== -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%92%9A%3C/text%3E%3C/svg%3E" />
+
+    <!-- ============================================== -->
+    <!-- GOOGLE FONTS - HEBREW TYPOGRAPHY               -->
+    <!-- ============================================== -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;600;700;800&family=Heebo:wght@300;400;500;600;700;800;900&family=Frank+Ruhl+Libre:wght@400;500;700;900&display=swap" rel="stylesheet" />
+
+    <!-- ============================================== -->
+    <!-- TAILWIND CSS (PRODUCTION CDN)                  -->
+    <!-- ============================================== -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      // Tailwind custom theme configuration
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Assistant', 'Heebo', 'system-ui', 'sans-serif'],
+              display: ['Assistant', 'Heebo', 'system-ui', 'sans-serif'],
+            },
+            colors: {
+              // Warm, calming palette suitable for a therapy practice
+              sage: {
+                50:  '#f4f8f5',
+                100: '#e4efe7',
+                200: '#c9dfd0',
+                300: '#a3c7ae',
+                400: '#78aa88',
+                500: '#588e69',
+                600: '#437254',
+                700: '#375c45',
+                800: '#2e4a39',
+                900: '#273d30',
+              },
+              cream: {
+                50:  '#fdfbf6',
+                100: '#faf5e8',
+                200: '#f3e8cc',
+                300: '#ead4a5',
+                400: '#debb75',
+                500: '#d1a14f',
+              },
+              rose: {
+                50:  '#fdf4f3',
+                100: '#fbe7e5',
+                200: '#f7d0cc',
+                300: '#f0aea5',
+                400: '#e58275',
+              },
+              ink: {
+                900: '#1f2a24',
+                700: '#394842',
+                500: '#5c6a63',
+              },
+            },
+            boxShadow: {
+              soft:     '0 4px 20px -4px rgba(55, 92, 69, 0.12)',
+              softer:   '0 2px 10px -2px rgba(55, 92, 69, 0.08)',
+              elevated: '0 20px 50px -15px rgba(55, 92, 69, 0.25)',
+            },
+            animation: {
+              'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+              'fade-in':    'fadeIn 1s ease-out forwards',
+              'float':      'float 6s ease-in-out infinite',
+            },
+          },
+        },
+      };
+    </script>
+
+    <!-- ============================================== -->
+    <!-- גיליונות עיצוב מודולריים – סדר הטעינה קריטי   -->
+    <!-- 1. global.css      – בסיס, ניווט, לוגו, פוטר  -->
+    <!-- 2. home-about.css  – בית (hero) ואודות         -->
+    <!-- 3. services.css    – כרטיסי שירות              -->
+    <!-- 4. expertise.css   – מומחיות            -->
+    <!-- 5. training.css    – ציר הזמן וההכשרות         -->
+    <!-- 6. testimonials.css– מגלשת ההמלצות             -->
+    <!-- 7. contact.css     – טופס יצירת קשר            -->
+    <!-- ============================================== -->
+    <link rel="stylesheet" href="css/global.css" />
+    <link rel="stylesheet" href="css/home-about.css" />
+    <link rel="stylesheet" href="css/services.css" />
+    <link rel="stylesheet" href="css/expertise.css" />
+    <link rel="stylesheet" href="css/training.css" />
+    <link rel="stylesheet" href="css/testimonials.css" />
+    <link rel="stylesheet" href="css/contact.css" />
+</head>
+
+<body class="font-sans bg-cream-50 text-ink-900 antialiased overflow-x-hidden">
+
+    <!-- ============================================== -->
+    <!-- פס הניווט הקבוע                               -->
+    <!-- ============================================== -->
+    <header id="navbar" class="fixed top-0 inset-x-0 z-50 transition-all duration-300">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" aria-label="תפריט ראשי">
+            <div class="flex items-center justify-between py-3 lg:py-4 relative">
+
+                <!-- Desktop: קישורי ניווט — צד שמאל -->
+                <ul class="hidden lg:flex items-center gap-7 text-sm font-medium">
+                    <li><a href="#home" class="nav-link">בית</a></li>
+                    <li><a href="#about" class="nav-link">אודות</a></li>
+                    <li><a href="#services" class="nav-link">שירותים</a></li>
+                </ul>
+
+                <!-- Mobile: מרווח מאזן כנגד כפתור ההמבורגר -->
+                <div class="w-10 h-10 lg:hidden" aria-hidden="true"></div>
+
+                <!-- לוגו — ממורכז באופן מוחלט בכל הרוחבים -->
+                <a href="#home" class="logo-anchor absolute left-1/2 -translate-x-1/2" aria-label="חזרה לדף הבית">
+                    <img src="assets/images/logo.png" alt="ורדה משה - לוגו" class="site-logo">
+                </a>
+
+                <!-- Desktop: קישורי ניווט + CTA — צד ימין -->
+                <ul class="hidden lg:flex items-center gap-7 text-sm font-medium">
+                    <li><a href="#expertise" class="nav-link">מומחיות</a></li>
+                    <li><a href="#timeline" class="nav-link">הכשרות</a></li>
+                    <li><a href="#testimonials" class="nav-link">המלצות</a></li>
+                    <li>
+                        <a href="#contact" class="inline-flex items-center gap-2 bg-sage-600 hover:bg-sage-700 text-white px-5 py-2.5 rounded-full shadow-soft transition-all hover:shadow-elevated hover:-translate-y-0.5">
+                            צרו קשר
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14m-7-7l7 7-7 7"/></svg>
+                        </a>
+                    </li>
+                </ul>
+
+                <!-- Mobile Menu Toggle -->
+                <button id="mobile-menu-toggle" class="lg:hidden p-2 rounded-lg text-sage-800 hover:bg-sage-100 transition-colors" aria-label="פתח תפריט" aria-expanded="false" aria-controls="mobile-menu">
+                    <svg id="menu-icon-open" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+                    <svg id="menu-icon-close" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                </button>
+            </div>
+
+            <!-- Mobile Menu Drawer -->
+            <div id="mobile-menu" class="lg:hidden hidden pb-4">
+                <ul class="flex flex-col gap-1 bg-white rounded-2xl shadow-soft p-3 mt-2">
+                    <li><a href="#home" class="mobile-nav-link">בית</a></li>
+                    <li><a href="#about" class="mobile-nav-link">אודות</a></li>
+                    <li><a href="#services" class="mobile-nav-link">שירותים</a></li>
+                    <li><a href="#expertise" class="mobile-nav-link">מומחיות</a></li>
+                    <li><a href="#timeline" class="mobile-nav-link">הכשרות</a></li>
+                    <li><a href="#testimonials" class="mobile-nav-link">המלצות</a></li>
+                    <li>
+                        <a href="#contact" class="block text-center bg-sage-600 text-white py-3 rounded-xl font-medium mt-2">צרו קשר</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- ============================================== -->
+    <!-- אזור הגיבור (Hero) – כותרת ראשית + CTA        -->
+    <!-- ============================================== -->
+    <section id="home" class="relative pt-32 md:pt-40 pb-20 md:pb-28 overflow-hidden">
+        <!-- Decorative background blobs -->
+        <div class="absolute inset-0 -z-10 pointer-events-none">
+            <div class="absolute top-20 -start-24 w-96 h-96 bg-sage-200/40 rounded-full blur-3xl animate-float"></div>
+            <div class="absolute bottom-10 -end-24 w-[28rem] h-[28rem] bg-rose-100/50 rounded-full blur-3xl animate-float" style="animation-delay:-3s"></div>
+            <div class="absolute top-1/3 left-1/3 w-72 h-72 bg-cream-200/60 rounded-full blur-3xl"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+
+                <!-- Hero Copy -->
+                <div class="text-center lg:text-right reveal">
+                    <span class="inline-flex items-center gap-2 px-4 py-2 bg-sage-100 text-sage-700 rounded-full text-sm font-medium mb-6">
+                        <span class="w-2 h-2 bg-sage-500 rounded-full animate-pulse"></span>
+                        מעל 22 שנות ניסיון בליווי משפחות
+                    </span>
+
+                    <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight text-sage-900 mb-6">
+                        מזמינה אתכם למסע של
+                        <span class="block bg-gradient-to-l from-sage-600 via-sage-500 to-cream-500 bg-clip-text text-transparent mt-2">
+                            התפתחות ושקט פנימי
+                        </span>
+                    </h1>
+
+                    <p class="text-lg md:text-xl text-ink-700 leading-relaxed mb-8 max-w-2xl mx-auto lg:mx-0">
+                        טיפול קוגניטיבי-התנהגותי (CBT), אימון הוליסטי, הדרכת הורים ועיבוד חרדות וטראומות —
+                        <span class="block mt-2 text-sage-700 font-medium">בהתאמה אישית לילדים, מתבגרים והורים.</span>
+                    </p>
+
+                    <!-- Hero CTAs -->
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-10">
+                        <a href="#contact" class="inline-flex items-center justify-center gap-2 bg-sage-600 hover:bg-sage-700 text-white px-8 py-4 rounded-full font-semibold shadow-soft hover:shadow-elevated hover:-translate-y-0.5 transition-all">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                            בואו נדבר
+                        </a>
+                        <a href="#services" class="inline-flex items-center justify-center gap-2 border-2 border-sage-300 text-sage-800 hover:bg-sage-50 px-8 py-4 rounded-full font-semibold transition-all">
+                            גלו את השירותים
+                        </a>
+                    </div>
+
+                    <!-- Trust Metrics -->
+                    <div class="flex flex-wrap gap-6 lg:gap-10 justify-center lg:justify-start">
+                        <div>
+                            <div class="font-display text-3xl font-bold text-sage-700">22+</div>
+                            <div class="text-sm text-ink-500">שנות ניסיון</div>
+                        </div>
+                        <div class="w-px bg-sage-200"></div>
+                        <div>
+                            <div class="font-display text-3xl font-bold text-sage-700">CBT</div>
+                            <div class="text-sm text-ink-500">מוסמכת איט״ה</div>
+                        </div>
+                        <div class="w-px bg-sage-200"></div>
+                        <div>
+                            <div class="font-display text-3xl font-bold text-sage-700">PhD</div>
+                            <div class="text-sm text-ink-500">דוקטורנטית בפסיכולוגיה</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hero Visual -->
+                <div class="relative reveal">
+                    <div class="relative aspect-square max-w-lg mx-auto">
+                        <!-- Outer decorative ring -->
+                        <div class="absolute inset-0 rounded-full bg-gradient-to-br from-sage-200 via-cream-100 to-rose-100 blur-2xl opacity-70"></div>
+
+                        <!-- Main visual card -->
+                        <div class="relative w-full h-full rounded-[3rem] bg-gradient-to-br from-sage-50 to-cream-100 shadow-elevated overflow-hidden flex items-center justify-center">
+                            <!-- Abstract SVG illustration -->
+                            <svg viewBox="0 0 400 400" class="w-full h-full" aria-hidden="true">
+                                <defs>
+                                    <linearGradient id="sageGrad" x1="0" y1="0" x2="1" y2="1">
+                                        <stop offset="0%" stop-color="#78aa88" />
+                                        <stop offset="100%" stop-color="#437254" />
+                                    </linearGradient>
+                                    <linearGradient id="creamGrad" x1="0" y1="0" x2="1" y2="1">
+                                        <stop offset="0%" stop-color="#ead4a5" />
+                                        <stop offset="100%" stop-color="#d1a14f" />
+                                    </linearGradient>
+                                </defs>
+                                <!-- Growing plant metaphor -->
+                                <circle cx="200" cy="320" r="80" fill="url(#creamGrad)" opacity="0.4" />
+                                <path d="M200 320 Q 200 220 200 140" stroke="url(#sageGrad)" stroke-width="5" fill="none" stroke-linecap="round" />
+                                <ellipse cx="155" cy="210" rx="40" ry="22" fill="url(#sageGrad)" transform="rotate(-30 155 210)" opacity="0.85" />
+                                <ellipse cx="245" cy="180" rx="40" ry="22" fill="url(#sageGrad)" transform="rotate(25 245 180)" opacity="0.85" />
+                                <ellipse cx="200" cy="130" rx="35" ry="18" fill="url(#sageGrad)" />
+                                <circle cx="200" cy="130" r="10" fill="#faf5e8" />
+                                <!-- Sparkles -->
+                                <circle cx="120" cy="140" r="4" fill="#ead4a5" />
+                                <circle cx="290" cy="250" r="5" fill="#f0aea5" />
+                                <circle cx="310" cy="120" r="3" fill="#78aa88" />
+                                <circle cx="90"  cy="260" r="4" fill="#e58275" />
+                            </svg>
+                        </div>
+
+                        <!-- Floating badges -->
+                        <div class="absolute -top-4 start-4 md:start-10 bg-white rounded-2xl shadow-soft p-3 flex items-center gap-3 animate-float">
+                            <div class="w-10 h-10 rounded-full bg-rose-100 flex items-center justify-center text-xl">💛</div>
+                            <div>
+                                <div class="text-xs text-ink-500">גישה חמה</div>
+                                <div class="text-sm font-semibold text-sage-800">מלאת אהבה</div>
+                            </div>
+                        </div>
+                        <div class="absolute -bottom-4 end-4 md:end-10 bg-white rounded-2xl shadow-soft p-3 flex items-center gap-3 animate-float" style="animation-delay:-2s">
+                            <div class="w-10 h-10 rounded-full bg-sage-100 flex items-center justify-center text-xl">🧠</div>
+                            <div>
+                                <div class="text-xs text-ink-500">שיטות מוכחות</div>
+                                <div class="text-sm font-semibold text-sage-800">CBT &amp; Flash</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================== -->
+    <!-- אזור אודות – היכרות עם ורדה משה               -->
+    <!-- ============================================== -->
+    <section id="about" class="py-20 md:py-28 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-5 gap-10 lg:gap-16 items-center">
+
+                <!-- Illustration side -->
+                <div class="lg:col-span-2 reveal">
+                    <div class="relative">
+                        <div class="aspect-[4/5] rounded-3xl bg-gradient-to-br from-sage-100 to-cream-100 shadow-soft overflow-hidden relative">
+                            <svg viewBox="0 0 300 375" class="w-full h-full" aria-hidden="true">
+                                <defs>
+                                    <linearGradient id="aboutGrad" x1="0" y1="0" x2="1" y2="1">
+                                        <stop offset="0%" stop-color="#a3c7ae" />
+                                        <stop offset="100%" stop-color="#437254" />
+                                    </linearGradient>
+                                </defs>
+                                <!-- Abstract hands/connection motif -->
+                                <path d="M50 200 Q 150 100 250 200" stroke="url(#aboutGrad)" stroke-width="3" fill="none" stroke-linecap="round" opacity="0.6" />
+                                <path d="M50 230 Q 150 130 250 230" stroke="url(#aboutGrad)" stroke-width="3" fill="none" stroke-linecap="round" opacity="0.4" />
+                                <circle cx="80"  cy="180" r="28" fill="url(#aboutGrad)" opacity="0.75" />
+                                <circle cx="220" cy="180" r="28" fill="url(#aboutGrad)" opacity="0.75" />
+                                <circle cx="150" cy="110" r="24" fill="#ead4a5" opacity="0.9" />
+                                <!-- Heart -->
+                                <path d="M150 275 l-18 -18 a 12 12 0 1 1 18 -18 a 12 12 0 1 1 18 18 z" fill="#e58275" opacity="0.8" />
+                            </svg>
+                        </div>
+                        <!-- Signature badge -->
+                        <div class="absolute -bottom-6 -start-6 bg-white rounded-2xl shadow-soft px-5 py-3">
+                            <div class="font-display text-xl text-sage-700">ורדה משה</div>
+                            <div class="text-xs text-ink-500">מטפלת ומאמנת הוליסטית</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Text side -->
+                <div class="lg:col-span-3 reveal">
+                    <span class="inline-block text-sage-600 font-semibold tracking-wide text-sm uppercase mb-3">אודות</span>
+                    <h2 class="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-sage-900 leading-tight mb-6">
+                        ברוכים הבאים<br />
+                        למרחב של צמיחה ושקט פנימי
+                    </h2>
+
+                    <div class="space-y-5 text-ink-700 text-lg leading-relaxed">
+                        <p>
+                            החיבור שלי לעולם הטיפול וההדרכה נולד מסיפור אישי טעון, וממסע מקצועי נמשך של <strong class="text-sage-700">מעל 22 שנים</strong>.
+                            אני כאן כדי ללוות אתכם — ואת הילדים שלכם — במסע של צמיחה, הבנה עצמית ושקט פנימי.
+                        </p>
+                        <p>
+                            בעבודה שלי אני שוזרת בין כלים מעולמות ה<strong>מיינדפולנס</strong>, ה<strong>קבלה העצמית</strong>, האימון ההוליסטי וה<strong>דמיון המודרך</strong>.
+                            זהו מסע שבו <em>הדיוק של ה-CBT פוגש את העומק של האימון ההוליסטי</em>, ויוצר גשר של הבנה ותקשורת בתוך הבית.
+                        </p>
+                        <p class="bg-sage-50 border-r-4 border-sage-400 px-5 py-4 rounded-lg text-sage-900 font-medium">
+                            שינוי שלא רק נראה לעין — אלא מורגש כריפוי ממשי, עמוק בלב.
+                        </p>
+                    </div>
+
+                    <div class="mt-8 flex flex-wrap gap-3">
+                        <span class="px-4 py-2 bg-sage-100 text-sage-700 rounded-full text-sm font-medium">מיינדפולנס</span>
+                        <span class="px-4 py-2 bg-cream-100 text-cream-500 rounded-full text-sm font-medium">אימון הוליסטי</span>
+                        <span class="px-4 py-2 bg-rose-100 text-rose-400 rounded-full text-sm font-medium">דמיון מודרך</span>
+                        <span class="px-4 py-2 bg-sage-100 text-sage-700 rounded-full text-sm font-medium">קבלה עצמית</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================== -->
+    <!-- אזור השירותים – כרטיסי שירות מותאמים אישית    -->
+    <!-- ============================================== -->
+    <section id="services" class="py-20 md:py-28 bg-gradient-to-b from-cream-50 to-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+            <!-- Section header -->
+            <div class="max-w-3xl mx-auto text-center mb-16 reveal">
+                <span class="inline-block text-sage-600 font-semibold tracking-wide text-sm uppercase mb-3">השירותים שלי</span>
+                <h2 class="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-sage-900 mb-5">
+                    ליווי מקצועי בהתאמה אישית
+                </h2>
+                <p class="text-lg text-ink-700 leading-relaxed">
+                    מותאם אישית לילדים, הורים, מתבגרים ומבוגרים — כל אחד מקבל את המרחב והכלים המדויקים עבורו.
+                </p>
+            </div>
+
+            <!-- Services grid -->
+            <div class="grid md:grid-cols-2 xl:grid-cols-4 gap-6 lg:gap-7">
+
+                <!-- Card 1: CBT for Children -->
+                <article class="service-card reveal">
+                    <div class="service-icon bg-sage-100 text-sage-700">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 1.98-3A2.5 2.5 0 0 1 9.5 2Z"/><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-1.98-3A2.5 2.5 0 0 0 14.5 2Z"/></svg>
+                    </div>
+                    <h3 class="service-title">טיפול CBT</h3>
+                    <p class="service-desc">
+                        טיפול קוגניטיבי-התנהגותי (CBT) הוא הדרך המוכחת והיעילה ביותר ליצירת שינוי אמיתי וממוקד מטרה המעניק כלים מעשיים להתמודדות עם:
+                    </p>
+                    <ul class="service-list">
+                        <li>התמודדות עם חרדות וחרדה חברתית</li>
+                        <li>הפרעה טורדנית כפייתית OCD</li>
+                        <li>ניהול קשב וריכוז (ADHD)</li>
+                        <li>שינוי דפוסי חשיבה מעכבים</li>
+                        <li>התפרצויות זעם</li>
+                    </ul>
+                    <div class="service-footer">
+                        <span class="text-xs text-ink-500">ילדים • מתבגרים • מבוגרים</span>
+                    </div>
+                </article>
+
+                <!-- Card 2: Parental Guidance -->
+                <article class="service-card reveal">
+                    <div class="service-icon bg-rose-100 text-rose-400">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    </div>
+                    <h3 class="service-title">הדרכת הורים</h3>
+                    <p class="service-desc">
+                        הכוונה אישית והעצמה להורים. בואו להחליף את חוסר האונים בכלים מעשיים — להחזיר את הסמכות ההורית ולמצוא את הדרך המדויקת לילד ולבית שלכם.
+                    </p>
+                    <ul class="service-list">
+                        <li>קשיי קשב וריכוז, אוטיזם</li>
+                        <li>התפרצויות בכי וזעם</li>
+                        <li>קשיי שינה וחרדות</li>
+                    </ul>
+                    <div class="service-footer">
+                        <span class="text-xs text-ink-500">הכלים שלכם • הביטחון שלהם</span>
+                    </div>
+                </article>
+
+                <!-- Card 3: Holistic Coaching -->
+                <article class="service-card reveal">
+                    <div class="service-icon bg-cream-100 text-cream-500">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                    </div>
+                    <h3 class="service-title">אימון אישי והוליסטי</h3>
+                    <p class="service-desc">
+                        מרחב בטוח של חיבור בין גוף לנפש. ליווי רגשי עמוק ומלא באהבה — יחד נשחרר חסמים, נחזיר את תחושת המוגנות ונחזק את החוסן הפנימי.
+                    </p>
+                    <ul class="service-list">
+                        <li>עיבוד חרדות וטראומות</li>
+                        <li>חיבור בין גוף לנפש</li>
+                        <li>שחרור חסמים רגשיים</li>
+                    </ul>
+                    <div class="service-footer">
+                        <span class="text-xs text-ink-500">חופש • שלווה • אהבה עצמית</span>
+                    </div>
+                </article>
+
+                <!-- Card 4: First Grade Readiness -->
+                <article class="service-card reveal">
+                    <div class="service-icon bg-sage-100 text-sage-700">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+                    </div>
+                    <h3 class="service-title">מוכנות לכיתה א׳</h3>
+                    <p class="service-desc">
+                        עולים לכיתה א׳ עם חיוך וביטחון. הכנה ייחודית המשלבת מיומנויות למידה עם כלים רגשיים (CBT) — כי הצלחה בבית הספר מתחילה בתחושת מסוגלות.
+                    </p>
+                    <ul class="service-list">
+                        <li>מיומנויות למידה מותאמות</li>
+                        <li>כלים לניהול רגשי ומחשבתי</li>
+                        <li>חיזוק תחושת מסוגלות</li>
+                    </ul>
+                    <div class="service-footer">
+                        <span class="text-xs text-ink-500">גן • כיתות יסודי</span>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================== -->
+    <!-- אזור המומחיות – Flash ו-Bilateral               -->
+    <!-- ============================================== -->
+    <section id="expertise" class="py-20 md:py-28 bg-gradient-to-b from-sage-700 to-sage-900 text-white relative overflow-hidden">
+        <div class="absolute -top-40 -start-40 w-96 h-96 bg-sage-600 rounded-full blur-3xl opacity-30"></div>
+        <div class="absolute -bottom-40 -end-40 w-[28rem] h-[28rem] bg-cream-500 rounded-full blur-3xl opacity-20"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+
+            <!-- Header -->
+            <div class="max-w-3xl mx-auto text-center mb-14 reveal">
+                <span class="inline-block text-cream-300 font-semibold tracking-wide text-sm uppercase mb-3">מומחיות</span>
+                <h2 class="font-display text-3xl md:text-4xl lg:text-5xl font-bold mb-5">
+                    טכניקות מתקדמות לעיבוד עדין ומהיר
+                </h2>
+                <p class="text-lg text-sage-100 leading-relaxed">
+                    שימוש בשיטות המתקדמות ביותר כיום לעיבוד חוויות וזיכרונות — כדי להרגיע את רעשי הרקע ולשחרר דפוסים מעכבים.
+                </p>
+            </div>
+
+            <!-- Expertise grid -->
+            <div class="grid lg:grid-cols-2 gap-6 lg:gap-8">
+
+                <!-- Flash Technique Card -->
+                <div class="expertise-card reveal">
+                    <div class="flex items-start gap-5">
+                        <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-cream-300 to-cream-500 flex items-center justify-center shrink-0 shadow-lg">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-sage-900" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                        </div>
+                        <div>
+                            <h3 class="font-display text-2xl font-bold mb-2">Flash Technique</h3>
+                            <p class="text-sm text-cream-300 mb-3">טכניקת פלאש לעיבוד זיכרונות</p>
+                        </div>
+                    </div>
+                    <p class="text-sage-100 leading-relaxed mt-4">
+                        שיטה פורצת דרך לעיבוד זיכרונות של חרדות וטראומות — באופן עדין, מהיר וללא חשיפה חוזרת לתוכן הקשה.
+                        מאפשרת לנטרל את העוצמה הרגשית של זיכרונות מעכבים.
+                    </p>
+                    <div class="mt-5 flex items-center gap-2 text-sm text-cream-300 font-medium">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                        השתלמות מקצועית מוסמכת
+                    </div>
+                </div>
+
+                <!-- Bilateral Stimulation Card -->
+                <div class="expertise-card reveal">
+                    <div class="flex items-start gap-5">
+                        <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-rose-200 to-rose-400 flex items-center justify-center shrink-0 shadow-lg">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-sage-900" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12h3M19 12h3M6 12a6 6 0 0 1 12 0M6 12a6 6 0 0 0 12 0"/></svg>
+                        </div>
+                        <div>
+                            <h3 class="font-display text-2xl font-bold mb-2">Bilateral Stimulation</h3>
+                            <p class="text-sm text-cream-300 mb-3">גירוי בי-לטראלי</p>
+                        </div>
+                    </div>
+                    <p class="text-sage-100 leading-relaxed mt-4">
+                        מודל המשאבים הבי-לטראליים לעיבוד זיכרונות שליליים וחרדות. מאפשר לגוף ולמוח לעבד חוויות בצורה
+                        טבעית, לבנות חוסן ולהחזיר תחושת איזון פנימי.
+                    </p>
+                    <div class="mt-5 flex items-center gap-2 text-sm text-cream-300 font-medium">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                        השתלמות מקצועית מוסמכת
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom stats -->
+            <div class="mt-14 grid grid-cols-3 gap-6 text-center reveal">
+                <div>
+                    <div class="font-display text-4xl font-bold text-cream-300">CBT</div>
+                    <div class="text-sm text-sage-100 mt-1">מוסמכת איט״ה</div>
+                </div>
+                <div>
+                    <div class="font-display text-4xl font-bold text-cream-300">22+</div>
+                    <div class="text-sm text-sage-100 mt-1">שנות ניסיון</div>
+                </div>
+                <div>
+                    <div class="font-display text-4xl font-bold text-cream-300">PhD</div>
+                    <div class="text-sm text-sage-100 mt-1">דוקטורנטית בפסיכולוגיה</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================== -->
+    <!-- אזור ציר הזמן – הכשרות ולימודים אקדמיים       -->
+    <!-- ============================================== -->
+    <section id="timeline" class="py-20 md:py-28 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
+            <!-- Header -->
+            <div class="max-w-3xl mx-auto text-center mb-16 reveal">
+                <span class="inline-block text-sage-600 font-semibold tracking-wide text-sm uppercase mb-3">הכשרות ולימודים</span>
+                <h2 class="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-sage-900 mb-5">
+                    ציר הזמן המקצועי
+                </h2>
+                <p class="text-lg text-ink-700 leading-relaxed">
+                    מסע אקדמי וקליני עקבי — מבוסס על למידה מתמדת ועבודה מעמיקה עם הגישות המובילות בתחום.
+                </p>
+            </div>
+
+            <!-- Timeline -->
+            <div class="relative">
+                <!-- Vertical center line -->
+                <div class="absolute start-4 md:start-1/2 md:-translate-x-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-sage-200 via-sage-400 to-sage-200" aria-hidden="true"></div>
+
+                <div class="space-y-10">
+
+                    <!-- BA -->
+                    <div class="timeline-item reveal">
+                        <div class="timeline-dot">BA</div>
+                        <div class="timeline-content">
+                            <span class="timeline-tag">תואר ראשון</span>
+                            <h3 class="timeline-title">חינוך מיוחד (BA)</h3>
+                            <p class="timeline-desc">בסיס אקדמי מעמיק בהבנת המגוון הרחב של צרכים רגשיים והתפתחותיים.</p>
+                        </div>
+                    </div>
+
+                    <!-- Teaching Cert -->
+                    <div class="timeline-item reveal">
+                        <div class="timeline-dot">🎓</div>
+                        <div class="timeline-content">
+                            <span class="timeline-tag">הסמכה</span>
+                            <h3 class="timeline-title">תעודת הוראה</h3>
+                            <p class="timeline-desc">הסמכה פורמלית להוראה, עם התמחות בעבודה עם ילדים בעלי צרכים מיוחדים.</p>
+                        </div>
+                    </div>
+
+                    <!-- MA -->
+                    <div class="timeline-item reveal">
+                        <div class="timeline-dot">MA</div>
+                        <div class="timeline-content">
+                            <span class="timeline-tag">תואר שני</span>
+                            <h3 class="timeline-title">חינוך (MA)</h3>
+                            <p class="timeline-desc">העמקה מחקרית וקלינית בשיטות חינוך מתקדמות ובקשרי הורה-ילד.</p>
+                        </div>
+                    </div>
+
+                    <!-- Holistic Coaching -->
+                    <div class="timeline-item reveal">
+                        <div class="timeline-dot">💚</div>
+                        <div class="timeline-content">
+                            <span class="timeline-tag">הסמכה</span>
+                            <h3 class="timeline-title">אימון הוליסטי ודמיון מודרך</h3>
+                            <p class="timeline-desc">כלים עמוקים לעבודה בין גוף לנפש, עם דגש על חיבור פנימי ושחרור חסמים רגשיים.</p>
+                        </div>
+                    </div>
+
+                    <!-- CBT ITT -->
+                    <div class="timeline-item reveal">
+                        <div class="timeline-dot">CBT</div>
+                        <div class="timeline-content">
+                            <span class="timeline-tag">הסמכה קלינית</span>
+                            <h3 class="timeline-title">טיפול CBT — איט״ה</h3>
+                            <p class="timeline-desc">הסמכה קלינית בטיפול קוגניטיבי-התנהגותי מאיט״ה — האגודה הישראלית לטיפול התנהגותי-קוגניטיבי.</p>
+                        </div>
+                    </div>
+
+                    <!-- Parent Guidance -->
+                    <div class="timeline-item reveal">
+                        <div class="timeline-dot">👨‍👩‍👧</div>
+                        <div class="timeline-content">
+                            <span class="timeline-tag">הנחיה</span>
+                            <h3 class="timeline-title">הנחיית הורים</h3>
+                            <p class="timeline-desc">הכשרה מקצועית בהנחיית הורים — ליווי והעצמה בגישה אישית ומותאמת.</p>
+                        </div>
+                    </div>
+
+                    <!-- Advanced Trainings -->
+                    <div class="timeline-item reveal">
+                        <div class="timeline-dot">⚡</div>
+                        <div class="timeline-content">
+                            <span class="timeline-tag">השתלמויות מתקדמות</span>
+                            <h3 class="timeline-title">Flash, Bilateral, טראומה ואובדן</h3>
+                            <ul class="text-ink-700 space-y-1 mt-3 text-sm">
+                                <li>• טכניקת פלאש לעיבוד חרדות וזיכרונות</li>
+                                <li>• מודל המשאבים הבי-לטראליים</li>
+                                <li>• הפסיכולוגיה של אבל ואובדן</li>
+                                <li>• טראומה ומניעת פוסט טראומה (דצמבר 2023)</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- PhD -->
+                    <div class="timeline-item reveal">
+                        <div class="timeline-dot bg-gradient-to-br from-cream-300 to-cream-500 text-sage-900">PhD</div>
+                        <div class="timeline-content">
+                            <span class="timeline-tag highlight">בהווה</span>
+                            <h3 class="timeline-title">דוקטורנטית בפסיכולוגיה</h3>
+                            <p class="timeline-desc">ממשיכה ללמוד ולהתפתח — כיום במהלך כתיבת עבודת דוקטורט בתחום הפסיכולוגיה.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================== -->
+    <!-- אזור ההמלצות – מגלשת ציטוטים מהמטופלים        -->
+    <!-- ============================================== -->
+    <section id="testimonials" class="py-20 md:py-28 bg-gradient-to-b from-white via-cream-50 to-sage-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
+            <!-- Header -->
+            <div class="max-w-3xl mx-auto text-center mb-14 reveal">
+                <span class="inline-block text-sage-600 font-semibold tracking-wide text-sm uppercase mb-3">המלצות</span>
+                <h2 class="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-sage-900 mb-5">
+                    מילים שמחממות את הלב
+                </h2>
+                <p class="text-lg text-ink-700 leading-relaxed">
+                    סיפורים אמיתיים של הורים וילדים שחוו שינוי ממשי — מהקפיצה הרגשית, דרך ארגז הכלים לחיים, ועד להחזרת הסמכות ההורית.
+                </p>
+            </div>
+
+            <!-- Slider -->
+            <div class="relative reveal">
+                <!-- Slides container -->
+                <div id="testimonial-slider" class="overflow-hidden rounded-3xl">
+                    <div id="testimonial-track" class="flex transition-transform duration-700 ease-out">
+
+                        <!-- Slide 1: The Emotional Leap -->
+                        <article class="testimonial-slide">
+                            <div class="testimonial-quote-mark">“</div>
+                            <div class="testimonial-theme">הקפיצה הרגשית</div>
+                            <blockquote class="testimonial-body">
+                                ואווו מרגש 🙏 את מבינה שהוא קיבל — לא היה רק למידה, אלא גם תמיכה רגשית ❤️.
+                                זה ילד שהוא קודם כל לב, ואחרי זה כל היתר. הוא אפילו עשה מצגת להתמודד למועצת
+                                תלמידים היום! את לא מבינה איזו קפיצה הוא עשה — והרוב בזכותך ❤️
+                            </blockquote>
+                            <div class="testimonial-author">
+                                <div class="testimonial-avatar bg-rose-100 text-rose-400">א׳</div>
+                                <div>
+                                    <div class="font-semibold text-sage-900">אמא למתבגר</div>
+                                    <div class="text-xs text-ink-500">הדרכת הורים + CBT לילדים</div>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Slide 2: A Toolkit for Life -->
+                        <article class="testimonial-slide">
+                            <div class="testimonial-quote-mark">“</div>
+                            <div class="testimonial-theme">ארגז כלים לחיים</div>
+                            <blockquote class="testimonial-body">
+                                היום, לאחר סיום התהליך, אני מרגישה שיש לי ״ארגז כלים״ שאני יכולה להשתמש בו בכל פעם
+                                שעולה קושי. השינוי באיכות החיים שלי הוא משמעותי, ואני ממליצה בחום לכל מי שמחפש שינוי
+                                אמיתי ומדיד. תודה רבה לך ורדה יקרה — שיפרת לי את איכות חיי ונתת לי כלים לנהל את החרדות שבי.
+                            </blockquote>
+                            <div class="testimonial-author">
+                                <div class="testimonial-avatar bg-sage-100 text-sage-700">ב׳</div>
+                                <div>
+                                    <div class="font-semibold text-sage-900">מטופלת מבוגרת</div>
+                                    <div class="text-xs text-ink-500">CBT לחרדות • ספטמבר 2025</div>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Slide 3: Return of Parental Authority -->
+                        <article class="testimonial-slide">
+                            <div class="testimonial-quote-mark">“</div>
+                            <div class="testimonial-theme">החזרת הסמכות ההורית</div>
+                            <blockquote class="testimonial-body">
+                                רצינו להודות לורדה על הליווי המקצועי והתומך בתהליך הדרכת ההורים. בזכותה חווינו שינוי
+                                משמעותי בהתנהלות עם הילד, במיוחד בהתמודדות עם התקפי הבכי. ורדה העניקה לנו כלים מעשיים,
+                                רגישות והבנה — ואנחנו מרגישים בטוחים ומחוזקים יותר כהורים. ההשפעה ניכרת ביום-יום שלנו,
+                                ואנחנו מלאי הערכה.
+                            </blockquote>
+                            <div class="testimonial-author">
+                                <div class="testimonial-avatar bg-cream-100 text-cream-500">ה׳</div>
+                                <div>
+                                    <div class="font-semibold text-sage-900">הורים לילד צעיר</div>
+                                    <div class="text-xs text-ink-500">הדרכת הורים</div>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Slide 4: Containment and Calm -->
+                        <article class="testimonial-slide">
+                            <div class="testimonial-quote-mark">“</div>
+                            <div class="testimonial-theme">הכלה ושקט</div>
+                            <blockquote class="testimonial-body">
+                                אנחנו רואים שיפור משמעותי בהתמודדות בכעס. אמנם הוא עדיין מתרגז מהר — אבל יותר קל להכיל
+                                ולעצור התדרדרות כפי שהיה בעבר. הוא מודע למצב שהוא מתרגז ומתרגש מהר, ובעקבות זאת הוא
+                                מקבל בהבנה את הבקשה להירגע לפני שממשיכים. גם בנושא חרדה יש שיפור משמעותי — ויותר קל
+                                בסיטואציות שהיו קשות לי בעבר. תודה 🙏
+                            </blockquote>
+                            <div class="testimonial-author">
+                                <div class="testimonial-avatar bg-sage-100 text-sage-700">ש׳</div>
+                                <div>
+                                    <div class="font-semibold text-sage-900">הורה לילד בגיל הגן</div>
+                                    <div class="text-xs text-ink-500">CBT + הדרכת הורים</div>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Slide 5: Transformation in Confidence -->
+                        <article class="testimonial-slide">
+                            <div class="testimonial-quote-mark">“</div>
+                            <div class="testimonial-theme">ביטחון וצמיחה</div>
+                            <blockquote class="testimonial-body">
+                                אחרי כשנה וחצי של סדרה די נרחבת של טיפולי CBT אצלך — הילד שלנו, שחווה הרבה קשיים וחרדות,
+                                הפך לילד בוגר ומבין. בעל יכולת להתמודד עם קשיים, וקיבל ביטחון עצמי די גבוה. האיכפתיות
+                                שלך יוצאת דופן ומחממת את הלב. עזרת לנו מאוד. תודה רבה על הכל!
+                            </blockquote>
+                            <div class="testimonial-author">
+                                <div class="testimonial-avatar bg-rose-100 text-rose-400">מ׳</div>
+                                <div>
+                                    <div class="font-semibold text-sage-900">אמא לילד בישיבה</div>
+                                    <div class="text-xs text-ink-500">CBT ארוך טווח • יולי 2025</div>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+
+                <!-- Navigation arrows -->
+                <button id="testimonial-prev" class="testimonial-nav end-2 md:-end-6" aria-label="הקודם">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+                </button>
+                <button id="testimonial-next" class="testimonial-nav start-2 md:-start-6" aria-label="הבא">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+                </button>
+
+                <!-- Dots -->
+                <div id="testimonial-dots" class="flex justify-center gap-2 mt-8"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================== -->
+    <!-- אזור יצירת קשר – טופס פנייה ופרטי התקשרות     -->
+    <!-- ============================================== -->
+    <section id="contact" class="py-20 md:py-28 bg-white">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="relative bg-gradient-to-br from-sage-700 via-sage-600 to-sage-800 rounded-3xl overflow-hidden shadow-elevated">
+
+                <!-- Decorative blobs -->
+                <div class="absolute -top-20 -start-20 w-72 h-72 bg-cream-300/20 rounded-full blur-3xl"></div>
+                <div class="absolute -bottom-20 -end-20 w-96 h-96 bg-rose-200/20 rounded-full blur-3xl"></div>
+
+                <div class="relative grid md:grid-cols-2 gap-8 p-8 md:p-12 lg:p-16 text-white">
+
+                    <!-- CTA text -->
+                    <div class="reveal">
+                        <span class="inline-block text-cream-300 font-semibold tracking-wide text-sm uppercase mb-3">צרו קשר</span>
+                        <h2 class="font-display text-3xl md:text-4xl font-bold leading-tight mb-5">
+                            בואו נתחיל את המסע שלכם
+                        </h2>
+                        <p class="text-sage-100 text-lg leading-relaxed mb-8">
+                            אני כאן לענות על כל שאלה, ולהתאים יחד את המסגרת הטיפולית המדויקת עבורכם ועבור המשפחה שלכם.
+                            <span class="block mt-2 text-cream-200">השינוי מתחיל בכם — ואני כאן ללוות.</span>
+                        </p>
+
+                        <!-- Contact info -->
+                        <ul class="space-y-4">
+                            <li class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-full bg-white/15 flex items-center justify-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                                </div>
+                                <div>
+                                    <div class="text-xs text-sage-200">טלפון</div>
+                                    <a href="tel:+972546892715" class="font-semibold hover:underline">054-689-2715</a>
+                                </div>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-full bg-white/15 flex items-center justify-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                                </div>
+                                <div>
+                                    <div class="text-xs text-sage-200">אימייל</div>
+                                    <a href="mailto:vardasun@gmail.com" class="font-semibold hover:underline">vardasun@gmail.com</a>
+                                </div>
+                            </li>
+                            <!-- וואטסאפ – קישור עם הודעה מוכנה מראש -->
+                            <li class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-full bg-white/15 flex items-center justify-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+                                </div>
+                                <div>
+                                    <div class="text-xs text-sage-200">וואטסאפ</div>
+                                    <a href="https://wa.me/972546892715?text=%D7%94%D7%99%D7%99%2C%20%D7%94%D7%92%D7%A2%D7%AA%D7%99%20%D7%90%D7%9C%D7%99%D7%9A%20%D7%93%D7%A8%D7%9A%20%D7%94%D7%90%D7%AA%D7%A8%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A9%D7%9E%D7%95%D7%A2%20%D7%A2%D7%95%D7%93%20%D7%A4%D7%A8%D7%98%D7%99%D7%9D." target="_blank" rel="noopener noreferrer" class="font-semibold hover:underline">שלחו הודעה עכשיו</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Contact form — Netlify Forms integration -->
+                    <form
+                        id="contact-form"
+                        name="contact"
+                        data-netlify="true"
+                        netlify-honeypot="bot-field"
+                        class="bg-white rounded-2xl p-6 md:p-8 text-ink-900 shadow-soft reveal"
+                        novalidate
+                    >
+                        <!-- שדה נסתר לזיהוי Netlify (אל תסירו) -->
+                        <input type="hidden" name="form-name" value="contact" />
+                        <!-- מלכודת בוטים (אל תסירו) -->
+                        <p class="hidden" aria-hidden="true">
+                            <label>אל תמלאו שדה זה: <input name="bot-field" /></label>
+                        </p>
+
+                        <h3 class="font-display text-xl font-bold text-sage-900 mb-5">השאירו פרטים ואחזור אליכם</h3>
+
+                        <div class="space-y-4">
+                            <div>
+                                <label for="name" class="form-label">שם מלא</label>
+                                <input id="name" type="text" name="name" required class="form-input" placeholder="השם שלכם" />
+                            </div>
+                            <div>
+                                <label for="phone" class="form-label">טלפון</label>
+                                <input id="phone" type="tel" name="phone" required class="form-input" placeholder="054-0000000" />
+                            </div>
+                            <div>
+                                <label for="email" class="form-label">אימייל (לא חובה)</label>
+                                <input id="email" type="email" name="email" class="form-input" placeholder="your@email.com" />
+                            </div>
+                            <div>
+                                <label for="subject" class="form-label">תחום העניין</label>
+                                <select id="subject" name="subject" class="form-input">
+                                    <option>טיפול CBT</option>
+                                    <option>הדרכת הורים</option>
+                                    <option>אימון אישי והוליסטי</option>
+                                    <option>מוכנות לכיתה א׳</option>
+                                    <option>אחר</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="message" class="form-label">הודעה (לא חובה)</label>
+                                <textarea id="message" name="message" rows="3" class="form-input resize-none" placeholder="ספרו לי מעט..."></textarea>
+                            </div>
+
+                            <button type="submit" id="form-submit-btn" class="w-full bg-sage-600 hover:bg-sage-700 text-white font-semibold py-3.5 rounded-xl transition-all hover:shadow-elevated hover:-translate-y-0.5">
+                                שליחת פנייה
+                            </button>
+                            <p id="form-status" class="text-center text-sm mt-2" role="status" aria-live="polite"></p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================== -->
+    <!-- פוטר – לוגו, ניווט מהיר ופרטי קשר            -->
+    <!-- ============================================== -->
+    <footer class="bg-sage-900 text-sage-100 pt-14 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-3 gap-10 mb-10">
+
+                <!-- לוגו ותיאור קצר בפוטר -->
+                <div>
+                    <div class="flex items-center gap-3 mb-4">
+                        <a href="#home" aria-label="חזרה לדף הבית">
+                            <img src="assets\images\logo.png" alt="ורדה משה - לוגו" class="footer-logo">
+                        </a>
+                        <span class="font-display text-xl font-semibold text-white">ורדה משה</span>
+                    </div>
+                    <p class="text-sm leading-relaxed text-sage-200">
+                        מטפלת CBT, מאמנת הוליסטית ומדריכת הורים. מעל 22 שנות ניסיון בליווי ילדים, מתבגרים ומשפחות.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-semibold mb-4">ניווט מהיר</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#about" class="footer-link">אודות</a></li>
+                        <li><a href="#services" class="footer-link">שירותים</a></li>
+                        <li><a href="#expertise" class="footer-link">מומחיות</a></li>
+                        <li><a href="#timeline" class="footer-link">הכשרות</a></li>
+                        <li><a href="#testimonials" class="footer-link">המלצות</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-semibold mb-4">צרו קשר</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="mailto:vardasun@gmail.com" class="footer-link">vardasun@gmail.com</a></li>
+                        <li><a href="#contact" class="footer-link">טופס יצירת קשר</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="pt-6 border-t border-sage-700 flex flex-col md:flex-row justify-between items-center gap-3 text-xs text-sage-300">
+                <div>© <span id="year"></span> ורדה משה. כל הזכויות שמורות.</div>
+                <div>נבנה באהבה 💚 | עיצוב מותאם RTL</div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ============================================== -->
+    <!-- סקריפטים מודולריים – סדר הטעינה קריטי         -->
+    <!-- 1. home-about.js  – ניווט, גלילה, reveal, פוטר-->
+    <!-- 2. services.js   – שירותים (CSS בלבד)          -->
+    <!-- 3. expertise.js  – מומחיות (CSS בלבד)  -->
+    <!-- 4. training.js   – הכשרות (CSS בלבד)           -->
+    <!-- 5. testimonials.js – מגלשת ההמלצות            -->
+    <!-- 6. contact.js    – טיפול בטופס יצירת קשר      -->
+    <!-- ============================================== -->
+    <script src="js/home-about.js"   defer></script>
+    <script src="js/services.js"     defer></script>
+    <script src="js/expertise.js"    defer></script>
+    <script src="js/training.js"     defer></script>
+    <script src="js/testimonials.js" defer></script>
+    <script src="js/contact.js"      defer></script>
+</body>
+</html>

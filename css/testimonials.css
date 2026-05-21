@@ -1,0 +1,143 @@
+/* ==============================================
+   testimonials.css – עיצוב אזור ההמלצות
+   מגלשת המלצות, כרטיסי ציטוט, כפתורי ניווט ונקודות
+   ============================================== */
+
+
+/* ==============================================
+   8. מגלשת ההמלצות (Testimonials Slider)
+   ============================================== */
+
+/* שקופית בודדת – מאוחסנת ב-flex, רוחב 100% */
+.testimonial-slide {
+    flex: 0 0 100%;
+    padding: 2.5rem 1.75rem 2rem;
+    background-color: #ffffff;
+    box-shadow: 0 4px 20px -4px rgba(55, 92, 69, 0.12);
+    border-radius: 1.5rem;
+    position: relative;
+    min-height: 360px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ריפוד גדול יותר בדסקטופ */
+@media (min-width: 768px) {
+    .testimonial-slide {
+        padding: 3.5rem 3rem 2.5rem;
+    }
+}
+
+/* סימן ציטוט דקורטיבי גדול */
+.testimonial-quote-mark {
+    position: absolute;
+    top: 0.5rem;
+    inset-inline-end: 1.5rem;
+    font-family: 'Assistant', 'Heebo', sans-serif;
+    font-size: 7rem;
+    line-height: 1;
+    color: #e4efe7;
+    user-select: none;
+    pointer-events: none;
+}
+
+/* תגית נושא ההמלצה */
+.testimonial-theme {
+    display: inline-block;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #437254;
+    background-color: #f4f8f5;
+    padding: 0.35rem 1rem;
+    border-radius: 999px;
+    letter-spacing: 0.03em;
+    margin-bottom: 1.25rem;
+    align-self: flex-start;
+}
+
+/* גוף ההמלצה */
+.testimonial-body {
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: #394842;
+    margin: 0 0 1.75rem;
+    font-style: normal;
+    flex: 1;
+}
+
+/* גופן גדול יותר בדסקטופ */
+@media (min-width: 768px) {
+    .testimonial-body {
+        font-size: 1.125rem;
+    }
+}
+
+/* שורת פרטי הממליץ */
+.testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    padding-top: 1rem;
+    border-top: 1px solid #e4efe7;
+}
+
+/* אבטאר עגול עם אות ראשונה */
+.testimonial-avatar {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Assistant', 'Heebo', sans-serif;
+    font-weight: 700;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+}
+
+/* כפתורי ניווט (חצים) של המגלשה */
+.testimonial-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 2.75rem;
+    height: 2.75rem;
+    background-color: #ffffff;
+    color: #437254;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 14px -2px rgba(55, 92, 69, 0.2);
+    transition: transform 0.2s ease, color 0.2s ease, background-color 0.2s ease;
+    z-index: 2;
+}
+
+.testimonial-nav:hover {
+    background-color: #588e69;
+    color: #ffffff;
+    transform: translateY(-50%) scale(1.08);
+}
+
+.testimonial-nav:focus-visible {
+    outline: 3px solid #a3c7ae;
+    outline-offset: 3px;
+}
+
+/* נקודות פגינציה (Dots) */
+#testimonial-dots .dot {
+    width: 0.625rem;
+    height: 0.625rem;
+    border-radius: 999px;
+    background-color: #c9dfd0;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: background-color 0.3s ease, width 0.3s ease;
+}
+
+/* נקודה פעילה – ירוקה ורחבה יותר */
+#testimonial-dots .dot.is-active {
+    background-color: #437254;
+    width: 2rem;
+}

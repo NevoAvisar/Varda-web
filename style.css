@@ -1,0 +1,563 @@
+/* ==============================================
+   VARDA MOSHE — CUSTOM STYLESHEET
+   Minimal custom styles supplementing Tailwind.
+   Used only for:
+     - Custom animations
+     - Reusable component patterns
+     - RTL / Hebrew typography refinements
+   ============================================== */
+
+
+/* ==============================================
+   1. BASE / GLOBAL STYLES
+   ============================================== */
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem; /* offset fixed navbar when jumping to anchors */
+}
+
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+
+/* Improve Hebrew number readability inside Latin text */
+:lang(he) {
+    font-feature-settings: "kern" 1, "liga" 1;
+}
+
+/* Custom selection color */
+::selection {
+    background-color: #c9dfd0;
+    color: #273d30;
+}
+
+
+/* ==============================================
+   2. KEYFRAME ANIMATIONS
+   ============================================== */
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50%      { transform: translateY(-14px); }
+}
+
+
+/* ==============================================
+   3. SCROLL-TRIGGERED REVEAL ANIMATION
+   Elements with the `.reveal` class fade in
+   when scrolled into view. Toggled by script.js.
+   ============================================== */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    will-change: opacity, transform;
+}
+
+.reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Respect user motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+    .animate-float {
+        animation: none !important;
+    }
+}
+
+
+/* ==============================================
+   4. NAVIGATION STYLES
+   ============================================== */
+
+/* Scrolled state — added by script.js */
+#navbar {
+    background-color: rgba(253, 251, 246, 0);
+    backdrop-filter: blur(0px);
+}
+
+#navbar.is-scrolled {
+    background-color: rgba(253, 251, 246, 0.9);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    box-shadow: 0 2px 10px -2px rgba(55, 92, 69, 0.08);
+}
+
+/* Desktop navigation links */
+.nav-link {
+    position: relative;
+    color: #375c45;
+    transition: color 0.2s ease;
+    padding: 0.25rem 0;
+}
+
+.nav-link:hover {
+    color: #273d30;
+}
+
+.nav-link::after {
+    content: "";
+    position: absolute;
+    inset-inline-start: 0;
+    bottom: -4px;
+    width: 0;
+    height: 2px;
+    background-color: #588e69;
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* Mobile menu links */
+.mobile-nav-link {
+    display: block;
+    padding: 0.75rem 1rem;
+    color: #375c45;
+    font-weight: 500;
+    border-radius: 0.75rem;
+    transition: background-color 0.2s ease;
+}
+
+.mobile-nav-link:hover,
+.mobile-nav-link:focus-visible {
+    background-color: #f4f8f5;
+    color: #273d30;
+}
+
+
+/* ==============================================
+   5. SERVICE CARDS
+   ============================================== */
+
+.service-card {
+    background-color: #ffffff;
+    border: 1px solid #e4efe7;
+    border-radius: 1.5rem;
+    padding: 2rem 1.75rem;
+    transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.service-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 45px -20px rgba(55, 92, 69, 0.25);
+    border-color: #a3c7ae;
+}
+
+.service-icon {
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 1rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.25rem;
+    transition: transform 0.35s ease;
+}
+
+.service-card:hover .service-icon {
+    transform: rotate(-6deg) scale(1.05);
+}
+
+.service-title {
+    font-family: 'Assistant', 'Heebo', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #273d30;
+    margin-bottom: 0.75rem;
+    line-height: 1.3;
+}
+
+.service-desc {
+    color: #394842;
+    line-height: 1.65;
+    margin-bottom: 1.25rem;
+    font-size: 0.95rem;
+}
+
+.service-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.service-list li {
+    position: relative;
+    padding-inline-start: 1.25rem;
+    color: #5c6a63;
+    font-size: 0.9rem;
+}
+
+.service-list li::before {
+    content: "";
+    position: absolute;
+    inset-inline-start: 0;
+    top: 0.55rem;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: #78aa88;
+}
+
+.service-footer {
+    margin-top: auto;
+    padding-top: 1rem;
+    border-top: 1px dashed #e4efe7;
+}
+
+
+/* ==============================================
+   6. EXPERTISE CARDS (dark section)
+   ============================================== */
+
+.expertise-card {
+    background-color: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 1.5rem;
+    padding: 2rem;
+    transition: background-color 0.35s ease, transform 0.35s ease;
+}
+
+.expertise-card:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: translateY(-4px);
+}
+
+
+/* ==============================================
+   7. TIMELINE
+   ============================================== */
+
+.timeline-item {
+    position: relative;
+    display: flex;
+    gap: 1.5rem;
+    padding-inline-start: 3.5rem;
+}
+
+/* On desktop, alternate sides of the center line */
+@media (min-width: 768px) {
+    .timeline-item {
+        padding-inline-start: 0;
+        width: 50%;
+    }
+
+    .timeline-item:nth-child(odd) {
+        margin-inline-start: auto;
+        padding-inline-start: 3rem;
+    }
+
+    .timeline-item:nth-child(even) {
+        padding-inline-end: 3rem;
+        flex-direction: row-reverse;
+        text-align: end;
+    }
+}
+
+.timeline-dot {
+    position: absolute;
+    inset-inline-start: 0;
+    top: 0;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #78aa88, #437254);
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Assistant', 'Heebo', sans-serif;
+    font-weight: 700;
+    font-size: 0.875rem;
+    box-shadow: 0 4px 14px -4px rgba(55, 92, 69, 0.4);
+    z-index: 1;
+    flex-shrink: 0;
+}
+
+@media (min-width: 768px) {
+    .timeline-item:nth-child(odd) .timeline-dot {
+        inset-inline-start: -1.5rem;
+    }
+    .timeline-item:nth-child(even) .timeline-dot {
+        inset-inline-end: -1.5rem;
+        inset-inline-start: auto;
+    }
+}
+
+.timeline-content {
+    background-color: #ffffff;
+    border: 1px solid #e4efe7;
+    border-radius: 1.25rem;
+    padding: 1.5rem;
+    box-shadow: 0 2px 10px -2px rgba(55, 92, 69, 0.06);
+    flex: 1;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.timeline-content:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px -10px rgba(55, 92, 69, 0.2);
+}
+
+.timeline-tag {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #437254;
+    background-color: #e4efe7;
+    padding: 0.2rem 0.75rem;
+    border-radius: 999px;
+    margin-bottom: 0.6rem;
+    letter-spacing: 0.02em;
+}
+
+.timeline-tag.highlight {
+    color: #273d30;
+    background: linear-gradient(90deg, #ead4a5, #f3e8cc);
+}
+
+.timeline-title {
+    font-family: 'Assistant', 'Heebo', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #273d30;
+    margin-bottom: 0.4rem;
+    line-height: 1.3;
+}
+
+.timeline-desc {
+    color: #394842;
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+
+/* ==============================================
+   8. TESTIMONIALS SLIDER
+   ============================================== */
+
+.testimonial-slide {
+    flex: 0 0 100%;
+    padding: 2.5rem 1.75rem 2rem;
+    background-color: #ffffff;
+    box-shadow: 0 4px 20px -4px rgba(55, 92, 69, 0.12);
+    border-radius: 1.5rem;
+    position: relative;
+    min-height: 360px;
+    display: flex;
+    flex-direction: column;
+}
+
+@media (min-width: 768px) {
+    .testimonial-slide {
+        padding: 3.5rem 3rem 2.5rem;
+    }
+}
+
+.testimonial-quote-mark {
+    position: absolute;
+    top: 0.5rem;
+    inset-inline-end: 1.5rem;
+    font-family: 'Assistant', 'Heebo', sans-serif;
+    font-size: 7rem;
+    line-height: 1;
+    color: #e4efe7;
+    user-select: none;
+    pointer-events: none;
+}
+
+.testimonial-theme {
+    display: inline-block;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #437254;
+    background-color: #f4f8f5;
+    padding: 0.35rem 1rem;
+    border-radius: 999px;
+    letter-spacing: 0.03em;
+    margin-bottom: 1.25rem;
+    align-self: flex-start;
+}
+
+.testimonial-body {
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: #394842;
+    margin: 0 0 1.75rem;
+    font-style: normal;
+    flex: 1;
+}
+
+@media (min-width: 768px) {
+    .testimonial-body {
+        font-size: 1.125rem;
+    }
+}
+
+.testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    padding-top: 1rem;
+    border-top: 1px solid #e4efe7;
+}
+
+.testimonial-avatar {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Assistant', 'Heebo', sans-serif;
+    font-weight: 700;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+}
+
+/* Slider navigation buttons */
+.testimonial-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 2.75rem;
+    height: 2.75rem;
+    background-color: #ffffff;
+    color: #437254;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 14px -2px rgba(55, 92, 69, 0.2);
+    transition: transform 0.2s ease, color 0.2s ease, background-color 0.2s ease;
+    z-index: 2;
+}
+
+.testimonial-nav:hover {
+    background-color: #588e69;
+    color: #ffffff;
+    transform: translateY(-50%) scale(1.08);
+}
+
+.testimonial-nav:focus-visible {
+    outline: 3px solid #a3c7ae;
+    outline-offset: 3px;
+}
+
+/* Slider dots (pagination) */
+#testimonial-dots .dot {
+    width: 0.625rem;
+    height: 0.625rem;
+    border-radius: 999px;
+    background-color: #c9dfd0;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: background-color 0.3s ease, width 0.3s ease;
+}
+
+#testimonial-dots .dot.is-active {
+    background-color: #437254;
+    width: 2rem;
+}
+
+
+/* ==============================================
+   9. CONTACT FORM
+   ============================================== */
+
+.form-label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #375c45;
+    margin-bottom: 0.4rem;
+}
+
+.form-input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    background-color: #f4f8f5;
+    border: 1.5px solid #e4efe7;
+    border-radius: 0.75rem;
+    color: #1f2a24;
+    font-size: 0.95rem;
+    font-family: inherit;
+    transition: border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: #588e69;
+    background-color: #ffffff;
+    box-shadow: 0 0 0 4px rgba(88, 142, 105, 0.15);
+}
+
+.form-input::placeholder {
+    color: #8aa397;
+}
+
+
+/* ==============================================
+   10. FOOTER
+   ============================================== */
+
+.footer-link {
+    color: #c9dfd0;
+    transition: color 0.2s ease;
+}
+
+.footer-link:hover,
+.footer-link:focus-visible {
+    color: #ffffff;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+
+/* ==============================================
+   11. UTILITY — ACCESSIBILITY FOCUS STATES
+   ============================================== */
+
+a:focus-visible,
+button:focus-visible {
+    outline: 3px solid #a3c7ae;
+    outline-offset: 3px;
+    border-radius: 0.25rem;
+}

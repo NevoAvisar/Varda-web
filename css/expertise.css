@@ -1,0 +1,26 @@
+/* ==============================================
+   expertise.css – עיצוב אזור המומחיות הקלינית
+   כרטיסי מומחיות על רקע כהה עם אפקט זכוכית
+   ============================================== */
+
+
+/* ==============================================
+   6. כרטיסי מומחיות קלינית (רקע כהה)
+   ============================================== */
+
+/* כרטיס מומחיות עם אפקט זכוכית (glassmorphism) */
+.expertise-card {
+    background-color: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 1.5rem;
+    padding: 2rem;
+    transition: background-color 0.35s ease, transform 0.35s ease;
+}
+
+/* הרמה קלה בעת מעבר עכבר */
+.expertise-card:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: translateY(-4px);
+}
