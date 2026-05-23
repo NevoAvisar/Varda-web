@@ -3,35 +3,35 @@
    כולל את כל הסגנונות שאינם ספציפיים לאזור אחד בדף
    ============================================== */
 
-
 /* ==============================================
    1. סגנונות בסיס גלובליים
    ============================================== */
 
 /* גלילה חלקה עם פיצוי לפס ניווט הקבוע */
 html {
-    scroll-behavior: smooth;
-    scroll-padding-top: 10rem; /* offset for larger centered-logo navbar */
+  scroll-behavior: smooth;
+  scroll-padding-top: 7rem; /* horizontal-logo navbar ~98px desktop */
 }
 
 /* שיפור רינדור פונטים */
 body {
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 /* שיפור קריאות מספרים עבריים בתוך טקסט לטיני */
 :lang(he) {
-    font-feature-settings: "kern" 1, "liga" 1;
+  font-feature-settings:
+    "kern" 1,
+    "liga" 1;
 }
 
 /* צבע סימון טקסט מותאם למותג */
 ::selection {
-    background-color: #c9dfd0;
-    color: #273d30;
+  background-color: #c9dfd0;
+  color: #273d30;
 }
-
 
 /* ==============================================
    2. אנימציות Keyframe
@@ -39,28 +39,36 @@ body {
 
 /* אנימציית כניסה מלמטה עם שקיפות */
 @keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* אנימציית דהייה */
 @keyframes fadeIn {
-    from { opacity: 0; }
-    to   { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 /* אנימציית ריחוף עדינה */
 @keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50%      { transform: translateY(-14px); }
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-14px);
+  }
 }
-
 
 /* ==============================================
    3. אנימציית גילוי בגלילה (.reveal)
@@ -69,29 +77,30 @@ body {
    ============================================== */
 
 .reveal {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-    will-change: opacity, transform;
+  opacity: 0;
+  transform: translateY(30px);
+  transition:
+    opacity 0.8s ease-out,
+    transform 0.8s ease-out;
+  will-change: opacity, transform;
 }
 
 .reveal.is-visible {
-    opacity: 1;
-    transform: translateY(0);
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* כיבוד הגדרת משתמש להפחתת תנועה */
 @media (prefers-reduced-motion: reduce) {
-    .reveal {
-        opacity: 1;
-        transform: none;
-        transition: none;
-    }
-    .animate-float {
-        animation: none !important;
-    }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .animate-float {
+    animation: none !important;
+  }
 }
-
 
 /* ==============================================
    4. סגנונות ניווט
@@ -99,101 +108,168 @@ body {
 
 /* מצב ברירת מחדל – שקוף */
 #navbar {
-    background-color: rgba(253, 251, 246, 0);
-    backdrop-filter: blur(0px);
+  background-color: rgba(253, 251, 246, 0);
+  backdrop-filter: blur(0px);
 }
 
 /* מצב גלילה – מוסף על-ידי script.js */
 #navbar.is-scrolled {
-    background-color: rgba(253, 251, 246, 0.93);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    box-shadow:
-        0 1px 0 rgba(55, 92, 69, 0.07),
-        0 6px 28px -6px rgba(55, 92, 69, 0.13);
+  background-color: rgba(253, 251, 246, 0.93);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow:
+    0 1px 0 rgba(55, 92, 69, 0.07),
+    0 6px 28px -6px rgba(55, 92, 69, 0.13);
 }
 
 /* קו עיטור עדין בתחתית הניווט — מופיע רק בגלילה */
 #navbar.is-scrolled::after {
-    content: '';
-    position: absolute;
-    inset-inline-start: 5%;
-    inset-inline-end: 5%;
-    bottom: 0;
-    height: 1px;
-    background: linear-gradient(to right, transparent, rgba(88, 142, 105, 0.22), transparent);
+  content: "";
+  position: absolute;
+  inset-inline-start: 5%;
+  inset-inline-end: 5%;
+  bottom: 0;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(88, 142, 105, 0.22),
+    transparent
+  );
 }
 
-/* קישורי ניווט דסקטופ עם קו תחתי בhover */
+/* קישורי ניווט דסקטופ */
 .nav-link {
-    position: relative;
-    color: #375c45;
-    transition: color 0.2s ease;
-    padding: 0.25rem 0;
+  position: relative;
+  color: #394842;               /* ink-700 — ניגוד טוב על כל רקע */
+  font-size: 0.875rem;
+  letter-spacing: 0.02em;       /* ריווח אותיות עדין לקריאות */
+  transition: color 0.3s ease;  /* מעבר חלק 0.3s */
+  padding: 0.4rem 0.25rem;      /* שטח לחיצה נוח */
 }
 
+/* Hover — כמעט שחור: שינוי מצב מיידי ובלתי ניתן להחמצה */
 .nav-link:hover {
-    color: #273d30;
+  color: #1f2a24;
 }
 
+/* קו תחתי מונפש */
 .nav-link::after {
-    content: "";
-    position: absolute;
-    inset-inline-start: 0;
-    bottom: -4px;
-    width: 0;
-    height: 2px;
-    background-color: #588e69;
-    transition: width 0.3s ease;
+  content: "";
+  position: absolute;
+  inset-inline-start: 0;
+  bottom: -3px;
+  width: 0;
+  height: 2px;
+  background-color: #588e69;    /* sage-500 — מותאם לפלטת המותג */
+  border-radius: 1px;
+  transition: width 0.3s ease;
 }
 
 .nav-link:hover::after {
-    width: 100%;
+  width: 100%;
 }
 
 /* קישורי תפריט מובייל */
 .mobile-nav-link {
-    display: block;
-    padding: 0.75rem 1rem;
-    color: #375c45;
-    font-weight: 500;
-    border-radius: 0.75rem;
-    transition: background-color 0.2s ease;
+  display: block;
+  padding: 0.8rem 1.1rem;
+  color: #394842;
+  font-weight: 600;              /* Semibold — קריא ומזמין */
+  font-size: 0.95rem;
+  border-radius: 0.75rem;
+  transition: background-color 0.25s ease, color 0.25s ease;
 }
 
 .mobile-nav-link:hover,
 .mobile-nav-link:focus-visible {
-    background-color: #f4f8f5;
-    color: #273d30;
+  background-color: #eaf3ec;    /* sage-100 — רקע ירוק עדין */
+  color: #1f2a24;
 }
 
-/* ===== לוגו – לוגו מרכזי בולט ופרמיום ===== */
-/* גובה הניווט: py-3 (12px×2) מובייל, py-4 (16px×2) דסקטופ.
-   מובייל: 88px + 24px padding = ~112px סה"כ  (hero pt-32 = 128px ✓)
-   דסקטופ: 120px + 32px padding = ~152px סה"כ (hero pt-40 = 160px ✓) */
+/* ===== לוגו – פריסה אופקית: לוגו | מפריד | שם ===== */
+/* גובה כותרת לפי גודל מסך (py-2 = 16px סה"כ) — לאחר הגדלה ×1.20:
+   <360px:   לוגו 61px + 16px = ~77px
+   360-1023: לוגו 74px + 16px = ~90px
+   1024px+:  לוגו 89px + 16px = ~105px              */
 
+/* הלוגו — הגדלה של 20% */
 .site-logo {
-    height: 88px;                   /* מובייל: לוגו מרכזי בולט */
-    width: auto;
-    display: block;
-    object-fit: contain;
-    filter: drop-shadow(0 4px 18px rgba(67, 114, 84, 0.25));
-    transition: filter 0.35s ease, transform 0.35s ease;
-    will-change: filter, transform;
+  height: 74px;
+  width: auto;
+  display: block;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 8px rgba(67, 114, 84, 0.20));
+  transition: filter 0.3s ease, transform 0.3s ease;
+  will-change: filter, transform;
+}
+
+/* מסכים קטנים מאוד */
+@media (max-width: 359px) {
+  .site-logo       { height: 61px; }
+  .logo-separator  { height: 36px; }
+  .logo-brand-name { font-size: 0.95rem; }
+}
+
+/* דסקטופ */
+@media (min-width: 1024px) {
+  .site-logo { height: 89px; }
+}
+
+/* מעבר עכבר: הרמה עדינה + זוהר */
+.logo-anchor:hover .site-logo {
+  filter: drop-shadow(0 6px 18px rgba(67, 114, 84, 0.40));
+  transform: scale(1.04);
+}
+
+/* כיוון LTR לאזור הלוגו — לוגו תמיד משמאל, שם מימינו */
+.logo-anchor {
+  direction: ltr;
+}
+
+/* קו הפרדה אלגנטי בין הלוגו לשם */
+.logo-separator {
+  display: block;
+  flex-shrink: 0;
+  width: 1.5px;
+  height: 44px;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    #a3c7ae 25%,
+    #588e69 50%,
+    #a3c7ae 75%,
+    transparent
+  );
+  border-radius: 1px;
+}
+
+/* מסכים קטנים מאוד — גובה מפריד מותאם ×1.15 */
+/* (כלל ה-max-width:359px כבר מטפל ב-.logo-separator לעיל) */
+
+@media (min-width: 1024px) {
+  .logo-separator { height: 55px; }
+}
+
+/* שם המותג — אופקי ליד הלוגו, בולד ומרשים */
+.logo-brand-name {
+  font-family: "Assistant", "Heebo", sans-serif;
+  font-size: 1.15rem;       /* מובייל: ~18px */
+  font-weight: 800;
+  color: #1f2a24;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  white-space: nowrap;
+  transition: opacity 0.25s ease;
 }
 
 @media (min-width: 1024px) {
-    .site-logo {
-        height: 120px;              /* דסקטופ: לוגו בולט ופרמיום */
-    }
+  .logo-brand-name { font-size: 1.5rem; } /* דסקטופ: 24px */
 }
 
-/* מעבר עכבר: הרמה עדינה + זוהר עמוק */
-.logo-anchor:hover .site-logo {
-    filter: drop-shadow(0 10px 32px rgba(67, 114, 84, 0.45));
-    transform: scale(1.05);
+.logo-anchor:hover .logo-brand-name {
+  opacity: 0.7;
 }
-
 
 /* ==============================================
    10. פוטר
@@ -201,34 +277,35 @@ body {
 
 /* לוגו בפוטר – נוכחות בולטת, פרמיום ומותאמת לרקע כהה */
 .footer-logo {
-    height: 110px;                  /* גודל משמעותי ובולט בפוטר */
-    width: auto;                    /* שמירה על יחס גובה-רוחב מדויק */
-    display: block;
-    object-fit: contain;            /* ללא עיוות – תמיד פרופורציונלי */
-    border-radius: 0.75rem;         /* רדיוס עדין לתמונת JPEG */
-    opacity: 0.92;
-    filter: drop-shadow(0 4px 18px rgba(255, 255, 255, 0.10));
-    transition: opacity 0.3s ease, transform 0.3s ease;
+  height: 110px; /* גודל משמעותי ובולט בפוטר */
+  width: auto; /* שמירה על יחס גובה-רוחב מדויק */
+  display: block;
+  object-fit: contain; /* ללא עיוות – תמיד פרופורציונלי */
+  border-radius: 0.75rem; /* רדיוס עדין לתמונת JPEG */
+  opacity: 0.92;
+  filter: drop-shadow(0 4px 18px rgba(255, 255, 255, 0.1));
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
 }
 
 .footer-logo:hover {
-    opacity: 1;
-    transform: scale(1.04);
+  opacity: 1;
+  transform: scale(1.04);
 }
 
 /* קישורי ניווט בפוטר */
 .footer-link {
-    color: #c9dfd0;
-    transition: color 0.2s ease;
+  color: #c9dfd0;
+  transition: color 0.2s ease;
 }
 
 .footer-link:hover,
 .footer-link:focus-visible {
-    color: #ffffff;
-    text-decoration: underline;
-    text-underline-offset: 3px;
+  color: #ffffff;
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
-
 
 /* ==============================================
    11. נגישות – מצבי מיקוד (Focus States)
@@ -237,7 +314,7 @@ body {
 /* מתאר גלוי בניווט מקלדת */
 a:focus-visible,
 button:focus-visible {
-    outline: 3px solid #a3c7ae;
-    outline-offset: 3px;
-    border-radius: 0.25rem;
+  outline: 3px solid #a3c7ae;
+  outline-offset: 3px;
+  border-radius: 0.25rem;
 }

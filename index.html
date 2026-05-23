@@ -116,56 +116,66 @@
     <!-- ============================================== -->
     <header id="navbar" class="fixed top-0 inset-x-0 z-50 transition-all duration-300">
         <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" aria-label="תפריט ראשי">
-            <div class="flex items-center justify-between py-3 lg:py-4 relative">
+            <!-- ============================================================
+                 פריסת 3 עמודות: שווה-גמיש בשני הצדדים, לוגו+שם במרכז.
+                 הלוגו הוא חלק מהזרם הרגיל — גובה השורה נקבע על-ידו.
+                 מובייל:  עמודה שמאלית ריקה | לוגו+שם | המבורגר
+                 דסקטופ: קישורי ניווט שמאל | לוגו+שם | קישורי ניווט ימין
+                 ============================================================ -->
+            <div class="flex items-center gap-4 py-2">
 
-                <!-- Desktop: קישורי ניווט — צד שמאל -->
-                <ul class="hidden lg:flex items-center gap-7 text-sm font-medium">
-                    <li><a href="#home" class="nav-link">בית</a></li>
-                    <li><a href="#about" class="nav-link">אודות</a></li>
-                    <li><a href="#services" class="nav-link">שירותים</a></li>
-                </ul>
+                <!-- עמודה ימנית (ב-RTL ראשונה בזרם): קישורי ניווט ימין / ריקה במובייל -->
+                <div class="flex-1 flex items-center justify-start">
+                    <ul class="hidden lg:flex items-center gap-6 text-sm font-semibold">
+                        <li><a href="#home" class="nav-link">בית</a></li>
+                        <li><a href="#about" class="nav-link">אודות</a></li>
+                        <li><a href="#services" class="nav-link">שירותים</a></li>
+                    </ul>
+                </div>
 
-                <!-- Mobile: מרווח מאזן כנגד כפתור ההמבורגר -->
-                <div class="w-10 h-10 lg:hidden" aria-hidden="true"></div>
-
-                <!-- לוגו — ממורכז באופן מוחלט בכל הרוחבים -->
-                <a href="#home" class="logo-anchor absolute left-1/2 -translate-x-1/2" aria-label="חזרה לדף הבית">
+                <!-- עמודה מרכזית: לוגו | מפריד | שם — פריסה אופקית אלגנטית -->
+                <a href="#home" class="logo-anchor flex-none flex items-center gap-3" aria-label="חזרה לדף הבית">
                     <img src="assets/images/logo.png" alt="ורדה משה - לוגו" class="site-logo">
+                    <span class="logo-separator" aria-hidden="true"></span>
+                    <span class="logo-brand-name">ורדה משה</span>
                 </a>
 
-                <!-- Desktop: קישורי ניווט + CTA — צד ימין -->
-                <ul class="hidden lg:flex items-center gap-7 text-sm font-medium">
-                    <li><a href="#expertise" class="nav-link">מומחיות</a></li>
-                    <li><a href="#timeline" class="nav-link">הכשרות</a></li>
-                    <li><a href="#testimonials" class="nav-link">המלצות</a></li>
-                    <li>
-                        <a href="#contact" class="inline-flex items-center gap-2 bg-sage-600 hover:bg-sage-700 text-white px-5 py-2.5 rounded-full shadow-soft transition-all hover:shadow-elevated hover:-translate-y-0.5">
-                            צרו קשר
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14m-7-7l7 7-7 7"/></svg>
-                        </a>
-                    </li>
-                </ul>
+                <!-- עמודה שמאלית (ב-RTL אחרונה בזרם): קישורי ניווט שמאל + CTA / המבורגר -->
+                <div class="flex-1 flex items-center justify-end gap-4 lg:gap-6">
+                    <ul class="hidden lg:flex items-center gap-6 text-sm font-semibold">
+                        <li><a href="#expertise" class="nav-link">מומחיות</a></li>
+                        <li><a href="#timeline" class="nav-link">הכשרות</a></li>
+                        <li><a href="#testimonials" class="nav-link">המלצות</a></li>
+                        <li>
+                            <a href="#contact" class="inline-flex items-center gap-2 bg-sage-600 hover:bg-sage-800 text-white px-5 py-2.5 rounded-full shadow-soft transition-all hover:shadow-elevated hover:-translate-y-0.5">
+                                צרו קשר
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14m-7-7l7 7-7 7"/></svg>
+                            </a>
+                        </li>
+                    </ul>
 
-                <!-- Mobile Menu Toggle -->
-                <button id="mobile-menu-toggle" class="lg:hidden p-2 rounded-lg text-sage-800 hover:bg-sage-100 transition-colors" aria-label="פתח תפריט" aria-expanded="false" aria-controls="mobile-menu">
-                    <svg id="menu-icon-open" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-                    <svg id="menu-icon-close" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-                </button>
+                    <!-- Mobile Menu Toggle -->
+                    <button id="mobile-menu-toggle" class="lg:hidden p-2 rounded-lg text-sage-800 hover:bg-sage-100 transition-colors" aria-label="פתח תפריט" aria-expanded="false" aria-controls="mobile-menu">
+                        <svg id="menu-icon-open" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+                        <svg id="menu-icon-close" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                    </button>
+                </div>
             </div>
 
             <!-- Mobile Menu Drawer -->
-            <div id="mobile-menu" class="lg:hidden hidden pb-4">
-                <ul class="flex flex-col gap-1 bg-white rounded-2xl shadow-soft p-3 mt-2">
+            <div id="mobile-menu" class="lg:hidden hidden pb-5">
+                <ul class="flex flex-col bg-white rounded-2xl shadow-soft overflow-hidden mt-2 divide-y divide-sage-100">
                     <li><a href="#home" class="mobile-nav-link">בית</a></li>
                     <li><a href="#about" class="mobile-nav-link">אודות</a></li>
                     <li><a href="#services" class="mobile-nav-link">שירותים</a></li>
                     <li><a href="#expertise" class="mobile-nav-link">מומחיות</a></li>
                     <li><a href="#timeline" class="mobile-nav-link">הכשרות</a></li>
                     <li><a href="#testimonials" class="mobile-nav-link">המלצות</a></li>
-                    <li>
-                        <a href="#contact" class="block text-center bg-sage-600 text-white py-3 rounded-xl font-medium mt-2">צרו קשר</a>
-                    </li>
                 </ul>
+                <a href="#contact" class="mt-3 flex items-center justify-center gap-2 bg-sage-600 hover:bg-sage-800 text-white py-3.5 rounded-xl font-semibold text-sm tracking-wide transition-colors duration-300">
+                    צרו קשר
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14m-7-7l7 7-7 7"/></svg>
+                </a>
             </div>
         </nav>
     </header>
@@ -173,7 +183,7 @@
     <!-- ============================================== -->
     <!-- אזור הגיבור (Hero) – כותרת ראשית + CTA        -->
     <!-- ============================================== -->
-    <section id="home" class="relative pt-32 md:pt-40 pb-20 md:pb-28 overflow-hidden">
+    <section id="home" class="relative pt-28 lg:pt-32 pb-20 md:pb-28 overflow-hidden">
         <!-- Decorative background blobs -->
         <div class="absolute inset-0 -z-10 pointer-events-none">
             <div class="absolute top-20 -start-24 w-96 h-96 bg-sage-200/40 rounded-full blur-3xl animate-float"></div>
@@ -371,7 +381,7 @@
                     ליווי מקצועי בהתאמה אישית
                 </h2>
                 <p class="text-lg text-ink-700 leading-relaxed">
-                    מותאם אישית לילדים, הורים, מתבגרים ומבוגרים — כל אחד מקבל את המרחב והכלים המדויקים עבורו.
+                    בהתאמה אישית לילדים והורים, מתבגרים ומבוגרים — כל אחד מקבל את המרחב והכלים המדויקים עבורו.
                 </p>
             </div>
 
@@ -611,9 +621,9 @@
                     <div class="timeline-item reveal">
                         <div class="timeline-dot">CBT</div>
                         <div class="timeline-content">
-                            <span class="timeline-tag">הסמכה קלינית</span>
+                            <span class="timeline-tag">הסמכה</span>
                             <h3 class="timeline-title">טיפול CBT — איט״ה</h3>
-                            <p class="timeline-desc">הסמכה קלינית בטיפול קוגניטיבי-התנהגותי מאיט״ה — האגודה הישראלית לטיפול התנהגותי-קוגניטיבי.</p>
+                            <p class="timeline-desc">הסמכה בטיפול קוגניטיבי-התנהגותי מאיט״ה — האגודה הישראלית לטיפול התנהגותי-קוגניטיבי.</p>
                         </div>
                     </div>
 
