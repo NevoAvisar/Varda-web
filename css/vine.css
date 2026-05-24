@@ -1,0 +1,182 @@
+/* ==============================================
+   vine.css — Scroll-driven vine growth animation
+   Red roses bloom progressively as the user
+   scrolls from the hero to the contact form.
+   All animation is CSS-only; JS only toggles
+   the .vine-bloomed class and updates dashoffset.
+   ============================================== */
+
+/* ── Container ────────────────────────────────
+   Hidden on narrow viewports.
+   Only shown where there is genuine whitespace
+   outside the centered content column.
+   ─────────────────────────────────────────── */
+#scroll-vine {
+  display: none;
+  pointer-events: none;
+  z-index: 40;
+}
+
+/* ≥ 1280 px — enough margin outside content */
+@media (min-width: 1280px) {
+  #scroll-vine {
+    display: block;
+    position: fixed;
+    right: 10px;
+    top: 0;
+    width: 48px;
+    height: 100vh;
+    overflow: visible;
+  }
+}
+
+/* ≥ 1440 px — a little more room */
+@media (min-width: 1440px) {
+  #scroll-vine {
+    width: 60px;
+    right: 18px;
+  }
+}
+
+/* SVG fills the container */
+#vine-svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+/* Stem reveal is driven by vine.js (strokeDashoffset) */
+#vine-stem {
+  will-change: stroke-dashoffset;
+}
+
+
+/* ════════════════════════════════════════════
+   LEAVES
+   Simple scale-in with a springy pop.
+   ════════════════════════════════════════════ */
+.vine-leaf {
+  transform-box: fill-box;
+  transform-origin: center;
+  opacity: 0;
+  transform: scale(0);
+  transition:
+    opacity  0.6s ease-out,
+    transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+  will-change: opacity, transform;
+}
+
+.vine-leaf.vine-bloomed {
+  opacity: 1;
+  transform: scale(1);
+}
+
+
+/* ════════════════════════════════════════════
+   BUDS
+   Rotate in from a closed position — mimics
+   a bud turning and opening toward the light.
+   ════════════════════════════════════════════ */
+.vine-bud {
+  transform-box: fill-box;
+  transform-origin: center;
+  opacity: 0;
+  transform: scale(0) rotate(-60deg);
+  transition:
+    opacity  0.5s ease-out,
+    transform 0.85s cubic-bezier(0.34, 1.56, 0.64, 1);
+  will-change: opacity, transform;
+}
+
+.vine-bud.vine-bloomed {
+  opacity: 1;
+  transform: scale(1) rotate(0deg);
+}
+
+
+/* ════════════════════════════════════════════
+   FLOWERS — three-layer bloom
+   Outer petals open first, then inner petals
+   unfurl, then the golden centre appears last.
+   The staggered delays create a true "blooming"
+   sequence rather than a flat scale animation.
+   ════════════════════════════════════════════ */
+
+/* Outer petals — bloom first (no delay) */
+.vine-petals-outer {
+  transform-box: fill-box;
+  transform-origin: center;
+  opacity: 0;
+  transform: scale(0) rotate(-20deg);
+  transition:
+    opacity  0.55s ease-out                                    0s,
+    transform 0.75s cubic-bezier(0.34, 1.56, 0.64, 1)         0s;
+  will-change: opacity, transform;
+}
+
+/* Inner petals — bloom 0.2 s after outer */
+.vine-petals-inner {
+  transform-box: fill-box;
+  transform-origin: center;
+  opacity: 0;
+  transform: scale(0) rotate(20deg);
+  transition:
+    opacity  0.55s ease-out                                    0.20s,
+    transform 0.75s cubic-bezier(0.34, 1.56, 0.64, 1)         0.20s;
+  will-change: opacity, transform;
+}
+
+/* Golden centre — appears last (0.38 s) */
+.vine-flower-center {
+  transform-box: fill-box;
+  transform-origin: center;
+  opacity: 0;
+  transform: scale(0);
+  transition:
+    opacity  0.4s ease-out                                     0.38s,
+    transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1)          0.38s;
+  will-change: opacity, transform;
+}
+
+/* Triggered by vine.js adding .vine-bloomed to the parent <g> */
+.vine-flower.vine-bloomed .vine-petals-outer,
+.vine-flower.vine-bloomed .vine-petals-inner,
+.vine-flower.vine-bloomed .vine-flower-center {
+  opacity: 1;
+  transform: scale(1) rotate(0deg);
+}
+
+
+/* ════════════════════════════════════════════
+   ANIMATED GROWING TIP
+   A pulsing dot that rides the leading edge
+   of the stem as it grows.
+   ════════════════════════════════════════════ */
+#vine-tip {
+  transform-box: fill-box;
+  transform-origin: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+#vine-tip.is-active {
+  opacity: 1;
+  animation: vine-tip-pulse 2s ease-in-out infinite;
+}
+
+@keyframes vine-tip-pulse {
+  0%, 100% { transform: scale(1);   opacity: 1;   }
+  50%       { transform: scale(2);   opacity: 0.3; }
+}
+
+
+/* ════════════════════════════════════════════
+   ACCESSIBILITY / MOTION PREFERENCES
+   Hide entirely for users who prefer reduced
+   motion — no flash, no jank.
+   ════════════════════════════════════════════ */
+@media (prefers-reduced-motion: reduce) {
+  #scroll-vine {
+    display: none !important;
+  }
+}

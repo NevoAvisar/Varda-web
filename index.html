@@ -107,6 +107,7 @@
     <link rel="stylesheet" href="css/training.css" />
     <link rel="stylesheet" href="css/testimonials.css" />
     <link rel="stylesheet" href="css/contact.css" />
+    <link rel="stylesheet" href="css/vine.css" />
 </head>
 
 <body class="font-sans bg-cream-50 text-ink-900 antialiased overflow-x-hidden">
@@ -196,11 +197,6 @@
 
                 <!-- Hero Copy -->
                 <div class="text-center lg:text-right reveal">
-                    <span class="inline-flex items-center gap-2 px-4 py-2 bg-sage-100 text-sage-700 rounded-full text-sm font-medium mb-6">
-                        <span class="w-2 h-2 bg-sage-500 rounded-full animate-pulse"></span>
-                        מעל 22 שנות ניסיון בליווי משפחות
-                    </span>
-
                     <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight text-sage-900 mb-6">
                         מזמינה אתכם למסע של
                         <span class="block bg-gradient-to-l from-sage-600 via-sage-500 to-cream-500 bg-clip-text text-transparent mt-2">
@@ -226,11 +222,6 @@
 
                     <!-- Trust Metrics -->
                     <div class="flex flex-wrap gap-6 lg:gap-10 justify-center lg:justify-start">
-                        <div>
-                            <div class="font-display text-3xl font-bold text-sage-700">22+</div>
-                            <div class="text-sm text-ink-500">שנות ניסיון</div>
-                        </div>
-                        <div class="w-px bg-sage-200"></div>
                         <div>
                             <div class="font-display text-3xl font-bold text-sage-700">CBT</div>
                             <div class="text-sm text-ink-500">מוסמכת איט״ה</div>
@@ -345,7 +336,7 @@
 
                     <div class="space-y-5 text-ink-700 text-lg leading-relaxed">
                         <p>
-                            החיבור שלי לעולם הטיפול וההדרכה נולד מסיפור אישי טעון, וממסע מקצועי נמשך של <strong class="text-sage-700">מעל 22 שנים</strong>.
+                            החיבור שלי לעולם הטיפול וההדרכה נולד מסיפור אישי טעון וממסע מקצועי עשיר ומעמיק.
                             אני כאן כדי ללוות אתכם — ואת הילדים שלכם — במסע של צמיחה, הבנה עצמית ושקט פנימי.
                         </p>
                         <p>
@@ -542,8 +533,8 @@
                     <div class="text-sm text-sage-100 mt-1">מוסמכת איט״ה</div>
                 </div>
                 <div>
-                    <div class="font-display text-4xl font-bold text-cream-300">22+</div>
-                    <div class="text-sm text-sage-100 mt-1">שנות ניסיון</div>
+                    <div class="font-display text-4xl font-bold text-cream-300">MA</div>
+                    <div class="text-sm text-sage-100 mt-1">חינוך מתקדם</div>
                 </div>
                 <div>
                     <div class="font-display text-4xl font-bold text-cream-300">PhD</div>
@@ -573,7 +564,7 @@
             <!-- Timeline -->
             <div class="relative">
                 <!-- Vertical center line -->
-                <div class="absolute start-4 md:start-1/2 md:-translate-x-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-sage-200 via-sage-400 to-sage-200" aria-hidden="true"></div>
+                <div class="absolute start-4 md:start-1/2 md:-translate-x-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-sage-200 via-sage-400 to-transparent" aria-hidden="true"></div>
 
                 <div class="space-y-10">
 
@@ -602,8 +593,7 @@
                         <div class="timeline-dot">MA</div>
                         <div class="timeline-content">
                             <span class="timeline-tag">תואר שני</span>
-                            <h3 class="timeline-title">חינוך (MA)</h3>
-                            <p class="timeline-desc">העמקה מחקרית וקלינית בשיטות חינוך מתקדמות ובקשרי הורה-ילד.</p>
+                            <h3 class="timeline-title">MA - העמקה בשיטות חינוך מתקדמות</h3>
                         </div>
                     </div>
 
@@ -859,6 +849,7 @@
                     <form
                         id="contact-form"
                         name="contact"
+                        method="POST"
                         data-netlify="true"
                         netlify-honeypot="bot-field"
                         class="bg-white rounded-2xl p-6 md:p-8 text-ink-900 shadow-soft reveal"
@@ -928,7 +919,7 @@
                         <span class="font-display text-xl font-semibold text-white">ורדה משה</span>
                     </div>
                     <p class="text-sm leading-relaxed text-sage-200">
-                        מטפלת CBT, מאמנת הוליסטית ומדריכת הורים. מעל 22 שנות ניסיון בליווי ילדים, מתבגרים ומשפחות.
+                        מטפלת CBT, מאמנת הוליסטית ומדריכת הורים. ליווי ילדים, מתבגרים ומשפחות.
                     </p>
                 </div>
 
@@ -974,5 +965,289 @@
     <script src="js/training.js"     defer></script>
     <script src="js/testimonials.js" defer></script>
     <script src="js/contact.js"      defer></script>
+    <script src="js/vine.js"         defer></script>
+
+    <!-- ============================================== -->
+    <!-- גפן גדילה – גפן SVG עם פרחים אדומים          -->
+    <!-- מונפש ע"י vine.js + vine.css                  -->
+    <!-- מוצג רק ב-1280px+ (CSS מטפל בתצוגה/הסתרה)    -->
+    <!-- aria-hidden: דקורטיבי בלבד, ללא ערך סמנטי     -->
+    <!-- ============================================== -->
+    <div id="scroll-vine" aria-hidden="true" role="presentation">
+      <svg
+        id="vine-svg"
+        viewBox="0 0 56 800"
+        preserveAspectRatio="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <defs>
+          <!-- Stem colour: light sage → deep forest green
+               gradientUnits=userSpaceOnUse anchors colours
+               to real y-positions so the revealed portion
+               always shows the correct hue band.          -->
+          <linearGradient id="vineGrad"
+            gradientUnits="userSpaceOnUse"
+            x1="0" y1="0" x2="0" y2="800">
+            <stop offset="0%"   stop-color="#a3c7ae" />
+            <stop offset="50%"  stop-color="#4a7c5f" />
+            <stop offset="100%" stop-color="#1e3d2a" />
+          </linearGradient>
+        </defs>
+
+        <!-- ════════════════════════════════════════
+             MAIN STEM — three S-curves top → bottom.
+             strokeDashoffset driven by vine.js.
+             ════════════════════════════════════════ -->
+        <path
+          id="vine-stem"
+          d="M 28 0
+             C 46 90,  10 175, 28 265
+             C 46 355, 10 440, 28 530
+             C 46 620, 10 705, 28 800"
+          fill="none"
+          stroke="url(#vineGrad)"
+          stroke-width="2.4"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+
+        <!-- Pulsing dot that rides the growing tip -->
+        <circle id="vine-tip" r="4" fill="#e74c3c" cx="28" cy="0" />
+
+        <!-- ════════════════════════════════════════
+             LEAF PAIRS
+             Positioned at the apexes of each S-curve
+             so leaves appear to branch off the vine
+             at its natural turning points.
+             ════════════════════════════════════════ -->
+
+        <!-- Pair 1 — 15 % — apex of first curve, y ≈ 175 -->
+        <g class="vine-leaf" data-vine-threshold="0.15">
+          <ellipse cx="7"  cy="176" rx="14" ry="5.5"
+                   fill="#5a8a5a" transform="rotate(-38 7 176)" />
+          <ellipse cx="30" cy="184" rx="13" ry="5"
+                   fill="#6aaa6a" transform="rotate(33 30 184)" />
+        </g>
+
+        <!-- Pair 2 — 42 % — apex of second curve, y ≈ 440 -->
+        <g class="vine-leaf" data-vine-threshold="0.42">
+          <ellipse cx="6"  cy="441" rx="16" ry="6.5"
+                   fill="#4a7c5f" transform="rotate(-40 6 441)" />
+          <ellipse cx="31" cy="449" rx="15" ry="6"
+                   fill="#5a9070" transform="rotate(36 31 449)" />
+        </g>
+
+        <!-- Pair 3 — 68 % — apex of third curve, y ≈ 705 -->
+        <g class="vine-leaf" data-vine-threshold="0.68">
+          <ellipse cx="7"  cy="706" rx="15" ry="6"
+                   fill="#3d6b50" transform="rotate(-38 7 706)" />
+          <ellipse cx="30" cy="714" rx="14" ry="5.5"
+                   fill="#4a7c5f" transform="rotate(34 30 714)" />
+        </g>
+
+
+        <!-- ════════════════════════════════════════
+             FLORAL ELEMENTS
+
+             Bloom story:
+               28 % → tight red bud
+               56 % → small open rose (5+5 petals)
+               75 % → medium rose   (5+5 petals)
+               85 % → large full bloom (5+5+5 petals)
+
+             Each flower uses three nested groups:
+               .vine-petals-outer  → blooms first
+               .vine-petals-inner  → blooms 0.20 s later
+               .vine-flower-center → blooms 0.38 s later
+             This sequence mimics a real rose opening.
+             ════════════════════════════════════════ -->
+
+
+        <!-- ── BUD  (28 %) ──────────────────────── -->
+        <!-- A tight, closed rosebud with green sepals -->
+        <g class="vine-bud" data-vine-threshold="0.28"
+           transform="translate(28 265)">
+          <!-- Sepals (the green leaflets cupping the bud) -->
+          <path d="M -7 2 C -9 -4 -7 -13 0 -16 C 7 -13 9 -4 7 2 Z"
+                fill="#437254" />
+          <path d="M -4 1 C -6 -2 -5 -10 0 -12 C 5 -10 6 -2 4 1 Z"
+                fill="#588e69" />
+          <!-- Bud body: overlapping tight petals -->
+          <ellipse cx="0"  cy="-14" rx="5.5" ry="9"  fill="#b71c1c" />
+          <ellipse cx="-3" cy="-15" rx="3"   ry="7"  fill="#c62828" />
+          <ellipse cx="3"  cy="-15" rx="3"   ry="7"  fill="#c62828" />
+          <!-- Tip highlight -->
+          <ellipse cx="-1" cy="-19" rx="2"   ry="4"  fill="#e53935"
+                   opacity="0.6" />
+        </g>
+
+
+        <!-- ── SMALL ROSE  (56 %) ───────────────── -->
+        <!-- A fully open rose — 5 outer + 5 inner petals -->
+        <g class="vine-flower" data-vine-threshold="0.56"
+           transform="translate(28 530)">
+
+          <!-- Outer petals — deep crimson, bloom first -->
+          <g class="vine-petals-outer">
+            <path d="M 0 0 C -9 -11 -11 -26 0 -32 C 11 -26 9 -11 0 0"
+                  fill="#b71c1c" transform="rotate(0)"   />
+            <path d="M 0 0 C -9 -11 -11 -26 0 -32 C 11 -26 9 -11 0 0"
+                  fill="#b71c1c" transform="rotate(72)"  />
+            <path d="M 0 0 C -9 -11 -11 -26 0 -32 C 11 -26 9 -11 0 0"
+                  fill="#b71c1c" transform="rotate(144)" />
+            <path d="M 0 0 C -9 -11 -11 -26 0 -32 C 11 -26 9 -11 0 0"
+                  fill="#b71c1c" transform="rotate(216)" />
+            <path d="M 0 0 C -9 -11 -11 -26 0 -32 C 11 -26 9 -11 0 0"
+                  fill="#b71c1c" transform="rotate(288)" />
+          </g>
+
+          <!-- Inner petals — bright red, offset 36°, bloom second -->
+          <g class="vine-petals-inner">
+            <path d="M 0 0 C -6 -8 -7 -20 0 -24 C 7 -20 6 -8 0 0"
+                  fill="#e53935" transform="rotate(36)"  />
+            <path d="M 0 0 C -6 -8 -7 -20 0 -24 C 7 -20 6 -8 0 0"
+                  fill="#e53935" transform="rotate(108)" />
+            <path d="M 0 0 C -6 -8 -7 -20 0 -24 C 7 -20 6 -8 0 0"
+                  fill="#e53935" transform="rotate(180)" />
+            <path d="M 0 0 C -6 -8 -7 -20 0 -24 C 7 -20 6 -8 0 0"
+                  fill="#e53935" transform="rotate(252)" />
+            <path d="M 0 0 C -6 -8 -7 -20 0 -24 C 7 -20 6 -8 0 0"
+                  fill="#e53935" transform="rotate(324)" />
+          </g>
+
+          <!-- Golden centre — appears last -->
+          <g class="vine-flower-center">
+            <circle r="6.5" fill="#e65100" />
+            <circle r="4"   fill="#f57c00" />
+            <circle r="2"   fill="#ffcc02" />
+            <!-- Stamen ring -->
+            <circle r="1.1" fill="#fff8e1" cx="0"    cy="-5"   />
+            <circle r="1.1" fill="#fff8e1" cx="4.3"  cy="-2.5" />
+            <circle r="1.1" fill="#fff8e1" cx="4.3"  cy="2.5"  />
+            <circle r="1.1" fill="#fff8e1" cx="0"    cy="5"    />
+            <circle r="1.1" fill="#fff8e1" cx="-4.3" cy="2.5"  />
+            <circle r="1.1" fill="#fff8e1" cx="-4.3" cy="-2.5" />
+          </g>
+        </g>
+
+
+        <!-- ── MEDIUM ROSE  (75 %) ──────────────── -->
+        <!-- Slightly larger than the small rose -->
+        <g class="vine-flower" data-vine-threshold="0.75"
+           transform="translate(28 645)">
+
+          <g class="vine-petals-outer">
+            <path d="M 0 0 C -10 -13 -13 -30 0 -38 C 13 -30 10 -13 0 0"
+                  fill="#9b1b30" transform="rotate(0)"   />
+            <path d="M 0 0 C -10 -13 -13 -30 0 -38 C 13 -30 10 -13 0 0"
+                  fill="#9b1b30" transform="rotate(72)"  />
+            <path d="M 0 0 C -10 -13 -13 -30 0 -38 C 13 -30 10 -13 0 0"
+                  fill="#9b1b30" transform="rotate(144)" />
+            <path d="M 0 0 C -10 -13 -13 -30 0 -38 C 13 -30 10 -13 0 0"
+                  fill="#9b1b30" transform="rotate(216)" />
+            <path d="M 0 0 C -10 -13 -13 -30 0 -38 C 13 -30 10 -13 0 0"
+                  fill="#9b1b30" transform="rotate(288)" />
+          </g>
+
+          <g class="vine-petals-inner">
+            <path d="M 0 0 C -7 -9 -9 -23 0 -28 C 9 -23 7 -9 0 0"
+                  fill="#d32f2f" transform="rotate(36)"  />
+            <path d="M 0 0 C -7 -9 -9 -23 0 -28 C 9 -23 7 -9 0 0"
+                  fill="#d32f2f" transform="rotate(108)" />
+            <path d="M 0 0 C -7 -9 -9 -23 0 -28 C 9 -23 7 -9 0 0"
+                  fill="#d32f2f" transform="rotate(180)" />
+            <path d="M 0 0 C -7 -9 -9 -23 0 -28 C 9 -23 7 -9 0 0"
+                  fill="#d32f2f" transform="rotate(252)" />
+            <path d="M 0 0 C -7 -9 -9 -23 0 -28 C 9 -23 7 -9 0 0"
+                  fill="#d32f2f" transform="rotate(324)" />
+          </g>
+
+          <g class="vine-flower-center">
+            <circle r="7.5" fill="#bf360c" />
+            <circle r="4.5" fill="#e64a19" />
+            <circle r="2.2" fill="#ffcc02" />
+            <circle r="1.2" fill="#fff8e1" cx="0"    cy="-5.5" />
+            <circle r="1.2" fill="#fff8e1" cx="4.8"  cy="-2.8" />
+            <circle r="1.2" fill="#fff8e1" cx="4.8"  cy="2.8"  />
+            <circle r="1.2" fill="#fff8e1" cx="0"    cy="5.5"  />
+            <circle r="1.2" fill="#fff8e1" cx="-4.8" cy="2.8"  />
+            <circle r="1.2" fill="#fff8e1" cx="-4.8" cy="-2.8" />
+          </g>
+        </g>
+
+
+        <!-- ── LARGE FULL BLOOM  (85 %) ─────────── -->
+        <!-- Three petal layers — outermost + outer + inner.
+             The largest flower: welcomes the user to
+             the Contact section at full scroll.         -->
+        <g class="vine-flower" data-vine-threshold="0.85"
+           transform="translate(28 762)">
+
+          <!-- Outermost layer — darkest red, largest petals -->
+          <g class="vine-petals-outer">
+            <path d="M 0 0 C -13 -15 -15 -38 0 -47 C 15 -38 13 -15 0 0"
+                  fill="#7b1a1a" transform="rotate(0)"   />
+            <path d="M 0 0 C -13 -15 -15 -38 0 -47 C 15 -38 13 -15 0 0"
+                  fill="#7b1a1a" transform="rotate(72)"  />
+            <path d="M 0 0 C -13 -15 -15 -38 0 -47 C 15 -38 13 -15 0 0"
+                  fill="#7b1a1a" transform="rotate(144)" />
+            <path d="M 0 0 C -13 -15 -15 -38 0 -47 C 15 -38 13 -15 0 0"
+                  fill="#7b1a1a" transform="rotate(216)" />
+            <path d="M 0 0 C -13 -15 -15 -38 0 -47 C 15 -38 13 -15 0 0"
+                  fill="#7b1a1a" transform="rotate(288)" />
+          </g>
+
+          <!-- Middle + inner layers share the second bloom wave -->
+          <g class="vine-petals-inner">
+            <!-- Middle ring: offset 36°, bright red -->
+            <path d="M 0 0 C -10 -12 -12 -31 0 -38 C 12 -31 10 -12 0 0"
+                  fill="#c62828" transform="rotate(36)"  />
+            <path d="M 0 0 C -10 -12 -12 -31 0 -38 C 12 -31 10 -12 0 0"
+                  fill="#c62828" transform="rotate(108)" />
+            <path d="M 0 0 C -10 -12 -12 -31 0 -38 C 12 -31 10 -12 0 0"
+                  fill="#c62828" transform="rotate(180)" />
+            <path d="M 0 0 C -10 -12 -12 -31 0 -38 C 12 -31 10 -12 0 0"
+                  fill="#c62828" transform="rotate(252)" />
+            <path d="M 0 0 C -10 -12 -12 -31 0 -38 C 12 -31 10 -12 0 0"
+                  fill="#c62828" transform="rotate(324)" />
+            <!-- Inner ring: same phase, vivid red -->
+            <path d="M 0 0 C -7 -9 -8 -23 0 -28 C 8 -23 7 -9 0 0"
+                  fill="#ef5350" transform="rotate(18)"  />
+            <path d="M 0 0 C -7 -9 -8 -23 0 -28 C 8 -23 7 -9 0 0"
+                  fill="#ef5350" transform="rotate(90)"  />
+            <path d="M 0 0 C -7 -9 -8 -23 0 -28 C 8 -23 7 -9 0 0"
+                  fill="#ef5350" transform="rotate(162)" />
+            <path d="M 0 0 C -7 -9 -8 -23 0 -28 C 8 -23 7 -9 0 0"
+                  fill="#ef5350" transform="rotate(234)" />
+            <path d="M 0 0 C -7 -9 -8 -23 0 -28 C 8 -23 7 -9 0 0"
+                  fill="#ef5350" transform="rotate(306)" />
+          </g>
+
+          <!-- Centre — rich amber/gold, many stamens -->
+          <g class="vine-flower-center">
+            <circle r="10"  fill="#bf360c" />
+            <circle r="6.5" fill="#e64a19" />
+            <circle r="3.5" fill="#f57c00" />
+            <circle r="1.8" fill="#ffcc02" />
+            <!-- Outer stamen ring -->
+            <circle r="1.4" fill="#fff8e1" cx="0"    cy="-7.5" />
+            <circle r="1.4" fill="#fff8e1" cx="6.5"  cy="-3.8" />
+            <circle r="1.4" fill="#fff8e1" cx="6.5"  cy="3.8"  />
+            <circle r="1.4" fill="#fff8e1" cx="0"    cy="7.5"  />
+            <circle r="1.4" fill="#fff8e1" cx="-6.5" cy="3.8"  />
+            <circle r="1.4" fill="#fff8e1" cx="-6.5" cy="-3.8" />
+            <!-- Inner stamen ring -->
+            <circle r="1"   fill="#fffde7" cx="0"    cy="-4.5" />
+            <circle r="1"   fill="#fffde7" cx="3.9"  cy="-2.2" />
+            <circle r="1"   fill="#fffde7" cx="3.9"  cy="2.2"  />
+            <circle r="1"   fill="#fffde7" cx="0"    cy="4.5"  />
+            <circle r="1"   fill="#fffde7" cx="-3.9" cy="2.2"  />
+            <circle r="1"   fill="#fffde7" cx="-3.9" cy="-2.2" />
+          </g>
+        </g>
+
+      </svg>
+    </div><!-- #scroll-vine -->
+
 </body>
 </html>
