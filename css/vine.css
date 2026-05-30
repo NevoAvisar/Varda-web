@@ -7,30 +7,52 @@
    ============================================== */
 
 /* ── Container ────────────────────────────────
-   Hidden on narrow viewports.
-   Only shown where there is genuine whitespace
-   outside the centered content column.
+   Visible on all screens ≥ 360 px.
+
+   Mobile / tablet strategy (< 1280 px):
+     width: 56 px  = exact viewBox width → no
+       horizontal distortion of petal shapes.
+     right: -28 px → centres the stem (x=28 in
+       the viewBox) on the viewport's right edge.
+     Flower petals extend ~15 px inward, which
+     lands inside the standard 16 px px-4 gutter
+     so they never overlap readable text.
+
+   height: 100dvh  = dynamic viewport height,
+     fixes the iOS Safari toolbar bug where
+     100 vh > the actual scrollable viewport.
    ─────────────────────────────────────────── */
 #scroll-vine {
-  display: none;
+  display: none;         /* hidden below 360 px */
   pointer-events: none;
   z-index: 40;
 }
 
-/* ≥ 1280 px — enough margin outside content */
-@media (min-width: 1280px) {
+/* ≥ 360 px — all phones and up */
+@media (min-width: 360px) {
   #scroll-vine {
     display: block;
     position: fixed;
-    right: 10px;
+    right: -28px;        /* stem centred on right viewport edge */
     top: 0;
-    width: 48px;
-    height: 100vh;
+    width: 56px;         /* matches SVG viewBox width → 1 : 1 scale */
+    height: 100vh;       /* fallback for older browsers */
+    height: 100dvh;      /* iOS Safari: excludes browser chrome */
     overflow: visible;
   }
 }
 
-/* ≥ 1440 px — a little more room */
+/* ≥ 1280 px — desktop: pull stem away from the edge */
+@media (min-width: 1280px) {
+  #scroll-vine {
+    right: 10px;
+    width: 48px;
+    height: 100vh;
+    height: 100dvh;
+  }
+}
+
+/* ≥ 1440 px — wide desktop */
 @media (min-width: 1440px) {
   #scroll-vine {
     width: 60px;

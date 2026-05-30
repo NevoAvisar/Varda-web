@@ -308,6 +308,41 @@ body {
 }
 
 /* ==============================================
+   10b. תפריט מובייל – אנימציית פתיחה/סגירה
+   קלאסים מופעלים ע"י home-about.js בלבד.
+   אין שינוי בצבעים, ריפוד או מבנה.
+   ============================================== */
+
+@keyframes menuSlideDown {
+  from { opacity: 0; transform: translateY(-10px); }
+  to   { opacity: 1; transform: translateY(0);     }
+}
+
+@keyframes menuSlideUp {
+  from { opacity: 1; transform: translateY(0);     }
+  to   { opacity: 0; transform: translateY(-10px); }
+}
+
+/* פתיחה — מחלקה מתווספת ב-openMenu() */
+#mobile-menu.is-opening {
+  animation: menuSlideDown 0.22s ease-out both;
+}
+
+/* סגירה — מחלקה מתווספת ב-closeMenu() */
+#mobile-menu.is-closing {
+  animation: menuSlideUp 0.18s ease-in both;
+}
+
+/* כיבוד הגדרת משתמש להפחתת תנועה: האנימציה
+   מסתיימת כמעט מיד אך animationend עדיין יורה */
+@media (prefers-reduced-motion: reduce) {
+  #mobile-menu.is-opening,
+  #mobile-menu.is-closing {
+    animation-duration: 0.01s;
+  }
+}
+
+/* ==============================================
    11. נגישות – מצבי מיקוד (Focus States)
    ============================================== */
 

@@ -12,33 +12,57 @@
        פותח/סוגר את התפריט ומחליף אייקונים
        ============================================== */
     const initMobileMenu = () => {
-        const toggleBtn  = document.getElementById('mobile-menu-toggle');
-        const menu       = document.getElementById('mobile-menu');
-        const iconOpen   = document.getElementById('menu-icon-open');
-        const iconClose  = document.getElementById('menu-icon-close');
+        const toggleBtn = document.getElementById('mobile-menu-toggle');
+        const menu      = document.getElementById('mobile-menu');
+        const iconOpen  = document.getElementById('menu-icon-open');
+        const iconClose = document.getElementById('menu-icon-close');
 
         if (!toggleBtn || !menu) return;
 
-        // סגירת התפריט
+        // האם התפריט גלוי (פתוח או באמצע אנימציה)?
+        const isVisible = () => !menu.classList.contains('hidden');
+
+        /* סגירה עם אנימציה:
+           1. מחליף אייקונים ו-aria מיד
+           2. מוסיף is-closing → CSS מפעיל slideUp
+           3. לאחר animationend מוסיף hidden ומנקה */
         const closeMenu = () => {
-            menu.classList.add('hidden');
+            if (!isVisible() || menu.classList.contains('is-closing')) return;
+
             iconOpen.classList.remove('hidden');
             iconClose.classList.add('hidden');
             toggleBtn.setAttribute('aria-expanded', 'false');
+
+            menu.classList.remove('is-opening');
+            menu.classList.add('is-closing');
+
+            menu.addEventListener('animationend', () => {
+                if (menu.classList.contains('is-closing')) {
+                    menu.classList.add('hidden');
+                    menu.classList.remove('is-closing');
+                }
+            }, { once: true });
         };
 
-        // פתיחת התפריט
+        /* פתיחה עם אנימציה:
+           מסיר hidden, מאפס מצב סגירה אם פעיל,
+           ומפעיל slideDown */
         const openMenu = () => {
+            menu.classList.remove('is-closing');
             menu.classList.remove('hidden');
+            menu.classList.remove('is-opening');
+            void menu.offsetWidth; // force reflow — מאפס את האנימציה
+            menu.classList.add('is-opening');
             iconOpen.classList.add('hidden');
             iconClose.classList.remove('hidden');
             toggleBtn.setAttribute('aria-expanded', 'true');
         };
 
-        // לחיצה על כפתור ה햄בורגר
+        // לחיצה על כפתור ה-hamburger
         toggleBtn.addEventListener('click', () => {
-            const isOpen = !menu.classList.contains('hidden');
-            isOpen ? closeMenu() : openMenu();
+            isVisible() && !menu.classList.contains('is-closing')
+                ? closeMenu()
+                : openMenu();
         });
 
         // סגירה בלחיצה על קישור פנימי
@@ -48,11 +72,16 @@
 
         // סגירה במקש Escape
         document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && !menu.classList.contains('hidden')) {
+            if (e.key === 'Escape' && isVisible()) {
                 closeMenu();
                 toggleBtn.focus();
             }
         });
+
+        // סגירה אוטומטית בגלילה
+        window.addEventListener('scroll', () => {
+            if (isVisible()) closeMenu();
+        }, { passive: true });
     };
 
 
