@@ -845,22 +845,21 @@
                         </ul>
                     </div>
 
-                    <!-- Contact form — Netlify Forms integration -->
+                    <!-- Contact form — FormSubmit.co -->
                     <form
                         id="contact-form"
                         name="contact"
+                        action="https://formsubmit.co/vardasun@gmail.com"
                         method="POST"
-                        data-netlify="true"
-                        netlify-honeypot="bot-field"
                         class="bg-white rounded-2xl p-6 md:p-8 text-ink-900 shadow-soft reveal"
                         novalidate
                     >
-                        <!-- שדה נסתר לזיהוי Netlify (אל תסירו) -->
-                        <input type="hidden" name="form-name" value="contact" />
-                        <!-- מלכודת בוטים (אל תסירו) -->
-                        <p class="hidden" aria-hidden="true">
-                            <label>אל תמלאו שדה זה: <input name="bot-field" /></label>
-                        </p>
+                        <!-- FormSubmit: ביטול CAPTCHA -->
+                        <input type="hidden" name="_captcha" value="false" />
+                        <!-- FormSubmit: דף תודה לאחר שליחה -->
+                        <input type="hidden" name="_next" value="https://vardamoshe.netlify.app/thanks.html" />
+                        <!-- FormSubmit: נושא המייל -->
+                        <input type="hidden" name="_subject" value="פנייה חדשה מהאתר – ורדה משה" />
 
                         <h3 class="font-display text-xl font-bold text-sage-900 mb-5">השאירו פרטים ואחזור אליכם</h3>
 
