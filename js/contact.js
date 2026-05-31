@@ -36,6 +36,15 @@
                 submitBtn.textContent = 'שולח...';
             }
 
+            /* ── הוספת השם לכתובת דף התודה ─────────
+               מעדכנים את שדה _next כך שיכלול את שם
+               הפונה כפרמטר URL לפני השליחה           */
+            const nextInput = form.querySelector('input[name="_next"]');
+            if (nextInput) {
+                const base = nextInput.value.split('?')[0];
+                nextInput.value = base + '?name=' + encodeURIComponent(nameVal);
+            }
+
             /* ── שליחה נטיבית ל-FormSubmit.co ──────
                FormSubmit.co מטפל בשליחת המייל ומפנה
                לדף thanks.html לפי שדה _next          */
